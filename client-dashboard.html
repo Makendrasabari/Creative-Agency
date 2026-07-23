@@ -228,7 +228,7 @@
                     <td>$15,000.00</td>
                     <td>June 15, 2026</td>
                     <td><span style="background: #DEF7EC; color: #03543F; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Paid</span></td>
-                    <td><a href="#" onclick="alert('Downloading Invoice PDF...')" style="color: var(--primary); font-weight: 700;">Download PDF</a></td>
+                    <td><a href="404.html" style="color: var(--primary); font-weight: 700;">Download PDF</a></td>
                   </tr>
                   <tr>
                     <td>#INV-2026-104</td>
@@ -505,179 +505,128 @@
         </div>
 
       </div>
-    </main>
 
-  </div>
-
-  <!-- Interactive Tab Switching & Dynamic User Session Script -->
+  <!-- Dashboard Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      'use strict';
+    document.addEventListener('DOMContentLoaded', function() {
 
-      // 1. Verify User Session
-      const sessionRaw = localStorage.getItem('stackly_user');
-      if (!sessionRaw) {
-        window.location.href = 'login.html';
-        return;
+      /* ── Tab Navigation ── */
+      var sideLinks   = document.querySelectorAll('.sidebar-menu .sidebar-link[data-tab]');
+      var tabSections = document.querySelectorAll('.tab-content-section');
+      var pageTitle   = document.getElementById('pageTitle');
+
+      var tabTitles = {
+        'overview':        'Overview',
+        'active-projects': 'Projects',
+        'milestones':      'Milestones',
+        'messages':        'Messages'
+      };
+
+      function switchTab(tabId) {
+        sideLinks.forEach(function(l) { l.classList.remove('active'); });
+        tabSections.forEach(function(s) { s.style.display = 'none'; });
+
+        var activeLink = document.querySelector('.sidebar-link[data-tab="' + tabId + '"]');
+        var activeSection = document.getElementById('tab-' + tabId);
+
+        if (activeLink)    activeLink.classList.add('active');
+        if (activeSection) activeSection.style.display = 'block';
+        if (pageTitle && tabTitles[tabId]) pageTitle.textContent = tabTitles[tabId];
       }
 
-      let currentUser = {};
-      try {
-        currentUser = JSON.parse(sessionRaw);
-      } catch(e) {
-        window.location.href = 'login.html';
-        return;
-      }
-
-      if (!currentUser.loggedIn) {
-        window.location.href = 'login.html';
-        return;
-      }
-
-      // 2. Populate Top-Right User Profile Avatar & Floating Dropdown
-      const userAvatar = document.getElementById('userAvatar');
-      const userProfileTrigger = document.getElementById('userProfileTrigger');
-      const headerUserName = document.getElementById('headerUserName');
-      const headerUserEmail = document.getElementById('headerUserEmail');
-      const profileDropdown = document.getElementById('profileDropdown');
-      const dropdownAvatar = document.getElementById('dropdownAvatar');
-      const dropdownUserName = document.getElementById('dropdownUserName');
-      const dropdownUserEmail = document.getElementById('dropdownUserEmail');
-      const dropdownUserRole = document.getElementById('dropdownUserRole');
-
-      if (userAvatar) userAvatar.textContent = currentUser.initials || 'U';
-      if (headerUserName) headerUserName.textContent = currentUser.name || 'User Name';
-      if (headerUserEmail) headerUserEmail.textContent = currentUser.email || 'user@example.com';
-      if (dropdownAvatar) dropdownAvatar.textContent = currentUser.initials || 'U';
-      if (dropdownUserName) dropdownUserName.textContent = currentUser.name || 'User Name';
-      if (dropdownUserEmail) dropdownUserEmail.textContent = currentUser.email || 'user@example.com';
-      if (dropdownUserRole) dropdownUserRole.textContent = currentUser.role === 'admin' ? '★ Agency Admin' : '● Client Account';
-
-      // Dropdown toggle & outside click close
-      const profileBtn = userProfileTrigger || userAvatar;
-      if (profileBtn && profileDropdown) {
-        profileBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          profileDropdown.classList.toggle('open');
+      sideLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          switchTab(link.getAttribute('data-tab'));
+          if (window.innerWidth <= 992) {
+            var sb = document.querySelector('.sidebar');
+            if (sb) sb.classList.remove('active');
+          }
         });
+      });
 
-        document.addEventListener('click', (e) => {
-          if (!profileDropdown.contains(e.target) && !profileBtn.contains(e.target)) {
-            profileDropdown.classList.remove('open');
+      // Quick message shortcut button
+      var quickMsgBtn = document.getElementById('quickMsgTabBtn');
+      if (quickMsgBtn) {
+        quickMsgBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          switchTab('messages');
+        });
+      }
+
+      // Show overview on load
+      switchTab('overview');
+
+      /* ── Mobile Sidebar ── */
+      var toggleBtn  = document.querySelector('.dashboard-sidebar-toggle');
+      var closeBtn   = document.querySelector('.sidebar-close-btn');
+      var sidebar    = document.querySelector('.sidebar');
+      if (toggleBtn && sidebar) toggleBtn.addEventListener('click', function() { sidebar.classList.add('active'); });
+      if (closeBtn  && sidebar) closeBtn.addEventListener('click',  function() { sidebar.classList.remove('active'); });
+
+      /* ── Chat Form ── */
+      var chatForm  = document.getElementById('chatForm');
+      var chatInput = document.getElementById('chatInput');
+      if (chatForm) {
+        chatForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (chatInput && chatInput.value.trim()) {
+            window.location.href = '404.html';
           }
         });
       }
 
-      // 3. Handle Sign Out (Clear session and redirect)
-      const logoutLinks = document.querySelectorAll('.logout-link, #dropdownLogoutBtn');
-      logoutLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
+      /* ── User Session ── */
+      var sessionRaw = localStorage.getItem('stackly_user');
+      if (!sessionRaw) { window.location.href = 'login.html'; return; }
+
+      var currentUser;
+      try { currentUser = JSON.parse(sessionRaw); }
+      catch(e) { window.location.href = 'login.html'; return; }
+      if (!currentUser || !currentUser.loggedIn) { window.location.href = 'login.html'; return; }
+
+      /* ── Populate Profile ── */
+      var els = {
+        userAvatar:        document.getElementById('userAvatar'),
+        headerUserName:    document.getElementById('headerUserName'),
+        headerUserEmail:   document.getElementById('headerUserEmail'),
+        dropdownAvatar:    document.getElementById('dropdownAvatar'),
+        dropdownUserName:  document.getElementById('dropdownUserName'),
+        dropdownUserEmail: document.getElementById('dropdownUserEmail'),
+        dropdownUserRole:  document.getElementById('dropdownUserRole')
+      };
+      if (els.userAvatar)        els.userAvatar.textContent        = currentUser.initials || 'U';
+      if (els.headerUserName)    els.headerUserName.textContent    = currentUser.name     || 'User Name';
+      if (els.headerUserEmail)   els.headerUserEmail.textContent   = currentUser.email    || 'user@example.com';
+      if (els.dropdownAvatar)    els.dropdownAvatar.textContent    = currentUser.initials || 'U';
+      if (els.dropdownUserName)  els.dropdownUserName.textContent  = currentUser.name     || 'User Name';
+      if (els.dropdownUserEmail) els.dropdownUserEmail.textContent = currentUser.email    || 'user@example.com';
+      if (els.dropdownUserRole)  els.dropdownUserRole.textContent  = currentUser.role === 'admin' ? '★ Agency Admin' : '● Client Account';
+
+      /* ── Profile Dropdown ── */
+      var profileTrig = document.getElementById('userProfileTrigger') || els.userAvatar;
+      var profileDrop = document.getElementById('profileDropdown');
+      if (profileTrig && profileDrop) {
+        profileTrig.addEventListener('click', function(e) {
+          e.stopPropagation();
+          profileDrop.classList.toggle('open');
+        });
+        document.addEventListener('click', function(e) {
+          if (!profileDrop.contains(e.target) && !profileTrig.contains(e.target)) {
+            profileDrop.classList.remove('open');
+          }
+        });
+      }
+
+      /* ── Sign Out ── */
+      document.querySelectorAll('.logout-link, #dropdownLogoutBtn').forEach(function(link) {
+        link.addEventListener('click', function(e) {
           e.preventDefault();
           localStorage.removeItem('stackly_user');
           window.location.href = 'login.html';
         });
       });
 
-      // 4. Tab Navigation & Dynamic Page Titles
-      const links = document.querySelectorAll('.sidebar-menu .sidebar-link[data-tab]');
-      const tabContents = document.querySelectorAll('.tab-content-section');
-      const pageTitle = document.getElementById('pageTitle');
-      const pageSubTitle = document.getElementById('pageSubTitle');
-      const quickMsgTabBtn = document.getElementById('quickMsgTabBtn');
-
-      const titles = {
-        'overview': { title: 'Overview', sub: 'Client Portal Dashboard' },
-        'active-projects': { title: 'Projects', sub: 'Manage ongoing builds & deliverables' },
-        'milestones': { title: 'Milestones', sub: 'Sprint roadmap & project completion' },
-        'messages': { title: 'Messages', sub: 'Direct messaging channel with agency team' }
-      };
-
-      function switchTab(tabId) {
-        links.forEach(l => l.classList.remove('active'));
-        tabContents.forEach(c => c.style.display = 'none');
-
-        const activeLink = document.querySelector(`.sidebar-link[data-tab="${tabId}"]`);
-        const activeContent = document.getElementById(`tab-${tabId}`);
-
-        if (activeLink) activeLink.classList.add('active');
-        if (activeContent) activeContent.style.display = 'block';
-
-        if (titles[tabId] && pageTitle) {
-          pageTitle.textContent = titles[tabId].title;
-          if (pageSubTitle) pageSubTitle.textContent = titles[tabId].sub;
-        }
-      }
-
-      links.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const tabId = link.getAttribute('data-tab');
-          switchTab(tabId);
-          window.location.hash = tabId;
-          if (window.innerWidth <= 992) {
-            document.querySelector('.sidebar')?.classList.remove('active');
-          }
-        });
-      });
-
-      // Mobile Sidebar Toggle
-      const dashSidebarToggle = document.querySelector('.dashboard-sidebar-toggle');
-      const dashSidebarClose = document.querySelector('.sidebar-close-btn');
-      const dashSidebar = document.querySelector('.sidebar');
-
-      if (dashSidebarToggle && dashSidebar) {
-        dashSidebarToggle.addEventListener('click', () => {
-          dashSidebar.classList.add('active');
-        });
-      }
-      if (dashSidebarClose && dashSidebar) {
-        dashSidebarClose.addEventListener('click', () => {
-          dashSidebar.classList.remove('active');
-        });
-      }
-
-      if (quickMsgTabBtn) {
-        quickMsgTabBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          switchTab('messages');
-          window.location.hash = 'messages';
-        });
-      }
-
-      // Handle hash navigation on page load
-      const initialHash = window.location.hash.replace('#', '');
-      if (initialHash && titles[initialHash]) {
-        switchTab(initialHash);
-      } else {
-        switchTab('overview');
-      }
-
-      // 5. Interactive Chat Messaging Form
-      const chatForm = document.getElementById('chatForm');
-      const chatInput = document.getElementById('chatInput');
-
-      if (chatForm) {
-        chatForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const text = chatInput ? chatInput.value.trim() : '';
-          if (!text) return;
-          window.location.href = '404.html';
-        });
-      }
-
-          // Auto Reply Simulation
-          setTimeout(() => {
-            const replyDiv = document.createElement('div');
-            replyDiv.style.cssText = 'background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-sm); max-width: 75%; align-self: flex-start;';
-            replyDiv.innerHTML = `
-              <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem;">Alex Mercer (Lead Architect) • Just now</div>
-              <p style="font-size: 0.9rem; line-height: 1.5;">Message received! Thank you ${currentUser.name || 'User'}, I have logged this update with our team.</p>
-            `;
-            fullChatHistory.appendChild(replyDiv);
-            fullChatHistory.scrollTop = fullChatHistory.scrollHeight;
-          }, 1000);
-        });
-      }
     });
   </script>
 

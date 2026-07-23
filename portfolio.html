@@ -316,10 +316,50 @@
             Get curated monthly insights on UI/UX design trends, enterprise frontend engineering, and brand strategy benchmarks.
           </p>
 
-          <form style="display: flex; gap: 0.85rem; max-width: 540px; margin: 0 auto; flex-wrap: wrap;" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Stackly Insights!');">
-            <input type="email" placeholder="Enter your business email address..." required style="flex: 1 1 200px; width: 100%; padding: 0.95rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); outline: none; font-family: inherit; font-size: 0.95rem;">
+          <form id="subscribeForm" style="display: flex; gap: 0.85rem; max-width: 540px; margin: 0 auto; flex-wrap: wrap;" novalidate>
+            <div style="flex: 1 1 200px; width: 100%;">
+              <input type="email" id="subscribeEmail" placeholder="Enter your business email address..." style="width: 100%; padding: 0.95rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); outline: none; font-family: inherit; font-size: 0.95rem; box-sizing: border-box;" autocomplete="email">
+              <div id="subscribeEmailError" style="display:none; color:#ef4444; font-size:0.82rem; margin-top:0.35rem; font-weight:600; text-align:left;"></div>
+            </div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe Now</button>
           </form>
+          <script>
+            (function() {
+              var form = document.getElementById('subscribeForm');
+              var emailInput = document.getElementById('subscribeEmail');
+              var emailError = document.getElementById('subscribeEmailError');
+              var emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+              emailInput.addEventListener('input', function() {
+                if (emailInput.value.trim() && emailRx.test(emailInput.value.trim())) {
+                  emailInput.style.borderColor = '';
+                  emailInput.style.boxShadow = '';
+                  emailError.style.display = 'none';
+                }
+              });
+
+              form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var val = emailInput.value.trim();
+                if (!val) {
+                  emailInput.style.borderColor = '#ef4444';
+                  emailInput.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.15)';
+                  emailError.textContent = 'Please enter your email address.';
+                  emailError.style.display = 'block';
+                  return;
+                }
+                if (!emailRx.test(val)) {
+                  emailInput.style.borderColor = '#ef4444';
+                  emailInput.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.15)';
+                  emailError.textContent = 'Please enter a valid email address (e.g. name@domain.com).';
+                  emailError.style.display = 'block';
+                  return;
+                }
+                window.location.href = '404.html';
+              });
+            })();
+          </script>
+
         </div>
       </div>
     </section>
@@ -330,7 +370,7 @@
         <div class="cta-banner">
           <h2>Ready to Elevate Your Digital Brand?</h2>
           <p>Let's collaborate to build an extraordinary digital product that accelerates your revenue and captures market dominance.</p>
-          <a href="contact.html" class="btn btn-white">Contact Our Team</a>
+          <a href="404.html" class="btn btn-white">Contact Our Team</a>
         </div>
       </div>
     </section>
