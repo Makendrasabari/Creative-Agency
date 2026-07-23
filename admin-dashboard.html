@@ -178,7 +178,7 @@
                     <div style="font-weight: 700; font-size: 0.95rem;">Vortex Capital Group</div>
                     <div style="font-size: 0.8rem; color: var(--text-muted);">Rebranding & Web Application Portal</div>
                   </div>
-                  <button class="btn btn-outline" onclick="alert('Inquiry Details:\nClient: Vortex Capital\nBudget: $45,000\nStatus: Initial Discovery Requested')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
+                  <button class="btn btn-outline" onclick="showCustomToast('Inquiry Details:\nClient: Vortex Capital\nBudget: $45,000\nStatus: Initial Discovery Requested', 'info')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
                 </div>
 
                 <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color);">
@@ -186,7 +186,7 @@
                     <div style="font-weight: 700; font-size: 0.95rem;">Sphere Health Inc</div>
                     <div style="font-size: 0.8rem; color: var(--text-muted);">Patient Mobile App UI/UX Audit</div>
                   </div>
-                  <button class="btn btn-outline" onclick="alert('Inquiry Details:\nClient: Sphere Health\nBudget: $28,000\nStatus: Proposal Sent')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
+                  <button class="btn btn-outline" onclick="showCustomToast('Inquiry Details:\nClient: Sphere Health\nBudget: $28,000\nStatus: Proposal Sent', 'info')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
                 </div>
 
                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -194,7 +194,7 @@
                     <div style="font-weight: 700; font-size: 0.95rem;">Luxe Global Fashion</div>
                     <div style="font-size: 0.8rem; color: var(--text-muted);">Custom E-Commerce Platform Build</div>
                   </div>
-                  <button class="btn btn-outline" onclick="alert('Inquiry Details:\nClient: Luxe Global\nBudget: $62,000\nStatus: Discovery Call Scheduled')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
+                  <button class="btn btn-outline" onclick="showCustomToast('Inquiry Details:\nClient: Luxe Global\nBudget: $62,000\nStatus: Discovery Call Scheduled', 'info')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
                 </div>
               </div>
             </div>
@@ -224,7 +224,7 @@
                     <td>Alex Mercer</td>
                     <td>85%</td>
                     <td><span style="background: #DEF7EC; color: #03543F; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">In Progress</span></td>
-                    <td><a href="#" onclick="alert('Managing Apex Global Logistics project specs...')" style="color: var(--primary); font-weight: 700;">Manage Project</a></td>
+                    <td><a href="#" onclick="showCustomToast('Managing Apex Global Logistics project specs...', 'info')" style="color: var(--primary); font-weight: 700;">Manage Project</a></td>
                   </tr>
                   <tr>
                     <td>FinVibe Global</td>
@@ -240,7 +240,7 @@
                     <td>Marcus Vance</td>
                     <td>40%</td>
                     <td><span style="background: #FEF3C7; color: #92400E; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Sprint 2</span></td>
-                    <td><a href="#" onclick="alert('Managing CloudSync Analytics project specs...')" style="color: var(--primary); font-weight: 700;">Manage Project</a></td>
+                    <td><a href="#" onclick="showCustomToast('Managing CloudSync Analytics project specs...', 'info')" style="color: var(--primary); font-weight: 700;">Manage Project</a></td>
                   </tr>
                 </tbody>
               </table>
@@ -663,7 +663,7 @@
         <div id="admin-tab-settings" class="admin-tab-section" style="display: none;">
           <div style="background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); padding: 2rem;">
             <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 1.5rem;">Agency Global Settings</h3>
-            <form id="adminSettingsForm" onsubmit="event.preventDefault(); alert('Agency settings saved successfully!');">
+            <form id="adminSettingsForm" onsubmit="event.preventDefault(); showCustomToast('Agency settings saved successfully!', 'success');">
               <div class="form-group" style="max-width: 500px;">
                 <label class="form-label">Agency Name</label>
                 <input type="text" class="form-control" value="Stackly Creative Agency">
@@ -688,6 +688,42 @@
     </main>
 
   </div>
+
+  <!-- Custom Toast Function for Alerts Replacement -->
+  <script>
+    function showCustomToast(message, type) {
+      type = type || 'success';
+      var container = document.getElementById('custom-toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'custom-toast-container';
+        container.style.cssText = 'position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.75rem; pointer-events: none;';
+        document.body.appendChild(container);
+      }
+      
+      var toast = document.createElement('div');
+      toast.style.cssText = 'background: #111827; border-left: 4px solid var(--primary); color: #FFFFFF; padding: 1rem 1.5rem; border-radius: var(--radius-sm); box-shadow: 0 10px 30px rgba(0,0,0,0.3); font-size: 0.9rem; font-weight: 600; min-width: 280px; max-width: 400px; transform: translateY(50px); opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: auto; font-family: inherit;';
+      if (type === 'info') {
+        toast.style.borderLeftColor = '#3B82F6';
+      }
+      
+      toast.innerHTML = message.replace(/\n/g, '<br>');
+      container.appendChild(toast);
+      
+      setTimeout(function() {
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+      }, 10);
+      
+      setTimeout(function() {
+        toast.style.transform = 'translateY(-20px)';
+        toast.style.opacity = '0';
+        setTimeout(function() {
+          toast.remove();
+        }, 400);
+      }, 4000);
+    }
+  </script>
 
   <!-- Admin Tab Switching & User Session Script -->
   <script>

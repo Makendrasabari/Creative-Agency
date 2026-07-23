@@ -2935,6 +2935,92 @@ body.preloader-active {
   padding-left: 2rem;
 }
 
+/* Service Detail Premium Left-Image Layout for Services Page */
+.service-detail-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  width: 100%;
+  margin-bottom: 8rem;
+  box-sizing: border-box;
+}
+
+.service-detail-item > div {
+  flex: 1;
+  width: 50%;
+}
+
+.service-detail-img-wrap {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.service-detail-item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  display: block;
+}
+
+.service-detail-item img:hover {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.service-detail-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service-detail-content h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  text-align: left !important;
+  color: var(--text-dark);
+}
+
+.service-detail-content p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  text-align: left !important;
+  max-width: 100%;
+}
+
+.service-detail-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  align-items: flex-start !important;
+  text-align: left !important;
+  width: 100%;
+}
+
+.service-detail-checklist div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-start !important;
+}
+
+.service-detail-content .btn {
+  align-self: flex-start !important;
+  margin: 0 !important;
+}
+
 @media (max-width: 1200px) {
   .hero-title { font-size: 3.25rem; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
@@ -3015,91 +3101,54 @@ body.preloader-active {
     bottom: 0;
   }
 
-  /* Service Detail Centered Layout for Services Page */
-.service-detail-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  max-width: 860px;
-  margin: 0 auto;
-  gap: 4rem;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-.service-detail-item > div {
-  order: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-  width: 100%;
-}
-
-.service-detail-item img {
-  max-width: 100%;
-  height: auto;
-  max-height: 480px;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--card-shadow-hover);
-  margin: 0 auto;
-}
-
-.service-detail-item h2,
-.service-detail-item h3 {
-  text-align: center !important;
-}
-
-.service-detail-item .badge {
-  align-self: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.service-detail-item .btn {
-  justify-content: center !important;
-  margin: 0 auto;
-}
-
-.service-detail-checklist {
-  align-items: flex-start !important;
-  text-align: left !important;
-  display: inline-flex !important;
-  flex-direction: column !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-  /* Service Detail Mobile Centering (within @media) */
-  .service-detail-item > div {
-    order: 0 !important;
-    display: flex !important;
+  /* Service Detail Mobile Override Rules (within 992px media query) */
+  .service-detail-item {
     flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
+    gap: 2.5rem;
+    margin-bottom: 5rem;
   }
-
-  .service-detail-item h2,
-  .service-detail-item h3 {
-    text-align: center !important;
-  }
-
-  .service-detail-item .badge {
-    align-self: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .service-detail-item .btn {
+  
+  .service-detail-item > div {
     width: 100% !important;
-    justify-content: center !important;
   }
-
+  
+  .service-detail-img-wrap {
+    max-width: 360px;
+  }
+  
+  .service-detail-item img {
+    max-width: 100%;
+    max-height: 280px;
+  }
+  
+  .service-detail-content {
+    text-align: center !important;
+    align-items: center !important;
+  }
+  
+  .service-detail-content h2 {
+    text-align: center !important;
+    font-size: 1.8rem;
+  }
+  
+  .service-detail-content p {
+    text-align: center !important;
+  }
+  
   .service-detail-checklist {
     align-items: center !important;
     text-align: center !important;
+  }
+  
+  .service-detail-checklist div {
+    justify-content: center !important;
+  }
+  
+  .service-detail-content .btn {
+    align-self: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    justify-content: center !important;
   }
 }
 

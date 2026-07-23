@@ -639,8 +639,34 @@
       if (chatForm) {
         chatForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          if (chatInput && chatInput.value.trim()) {
-            window.location.href = '404.html';
+          if (chatInput && chatInput.value.trim() && fullChatHistory) {
+            var msgText = chatInput.value.trim();
+            var activeContact = document.querySelector('.chat-contact-item.active');
+            var contactName = activeContact ? activeContact.getAttribute('data-name') : 'Alex Mercer';
+            
+            // Append message to active conversation in memory
+            if (!contactConversations[contactName]) {
+              contactConversations[contactName] = [];
+            }
+            contactConversations[contactName].push({
+              sender: 'You (Sarah Jenkins) • Just Now',
+              type: 'sent',
+              text: msgText
+            });
+            
+            // Re-render the message history
+            var msgs = contactConversations[contactName];
+            var html = '';
+            msgs.forEach(function(m) {
+              var cls = m.type === 'sent' ? 'chat-msg chat-msg-sent' : 'chat-msg chat-msg-received';
+              html += '<div class="' + cls + '">' +
+                        '<div class="chat-msg-meta">' + m.sender + '</div>' +
+                        '<p class="chat-msg-text">' + m.text + '</p>' +
+                      '</div>';
+            });
+            fullChatHistory.innerHTML = html;
+            fullChatHistory.scrollTop = fullChatHistory.scrollHeight;
+            chatInput.value = '';
           }
         });
       }

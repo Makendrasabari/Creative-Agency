@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
@@ -74,7 +75,7 @@
   <main>
     <!-- SECTION 1: Page Hero Banner -->
     <section class="page-hero">
-      <div class="container text-center">
+      <div class="container text-center" data-aos="fade-up" data-aos-duration="800">
         <span class="badge" style="margin-bottom: 1.25rem;">PORTFOLIO & INSIGHTS HUB</span>
         <h1 class="page-hero-title" style="font-size: 3.5rem; margin-bottom: 1rem;">Work Showcase & Insights</h1>
         <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; max-width: 720px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
@@ -89,14 +90,14 @@
     <!-- SECTION 2: Filterable Portfolio Gallery Grid -->
     <section class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up" data-aos-duration="800">
           <span class="badge">CURATED GALLERY</span>
           <h2 class="section-title">Explore Our <span>Creative Work</span></h2>
           <p class="section-desc">Filter through our multi-disciplinary client success stories below.</p>
         </div>
 
         <!-- Interactive Category Filters -->
-        <div class="portfolio-filters">
+        <div class="portfolio-filters" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
           <button class="filter-btn active" data-filter="all">All Projects</button>
           <button class="filter-btn" data-filter="branding">Branding</button>
           <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
@@ -106,7 +107,7 @@
 
         <!-- Portfolio Cards Grid -->
         <div class="grid grid-3">
-          <div class="portfolio-card" data-category="branding">
+          <div class="portfolio-card" data-category="branding" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="portfolio-img-wrap">
               <img src="assets/images/portfolio-1.webp" alt="Vortex Financial Identity" loading="lazy">
               <div class="portfolio-overlay">
@@ -117,7 +118,7 @@
             </div>
           </div>
 
-          <div class="portfolio-card" data-category="uiux">
+          <div class="portfolio-card" data-category="uiux" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="portfolio-img-wrap">
               <img src="assets/images/portfolio-2.webp" alt="FinVibe Banking Mobile App" loading="lazy">
               <div class="portfolio-overlay">
@@ -128,7 +129,7 @@
             </div>
           </div>
 
-          <div class="portfolio-card" data-category="web">
+          <div class="portfolio-card" data-category="web" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <div class="portfolio-img-wrap">
               <img src="assets/images/portfolio-3.webp" alt="Apex E-Commerce Platform" loading="lazy">
               <div class="portfolio-overlay">
@@ -139,7 +140,7 @@
             </div>
           </div>
 
-          <div class="portfolio-card" data-category="uiux">
+          <div class="portfolio-card" data-category="uiux" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="portfolio-img-wrap">
               <img src="assets/images/portfolio-4.webp" alt="SaaSify Cloud Dashboard" loading="lazy">
               <div class="portfolio-overlay">
@@ -150,7 +151,7 @@
             </div>
           </div>
 
-          <div class="portfolio-card" data-category="marketing">
+          <div class="portfolio-card" data-category="marketing" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="portfolio-img-wrap">
               <img src="assets/images/portfolio-5.webp" alt="Elevate Labs Campaign" loading="lazy">
               <div class="portfolio-overlay">
@@ -161,7 +162,7 @@
             </div>
           </div>
 
-          <div class="portfolio-card" data-category="web">
+          <div class="portfolio-card" data-category="web" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <div class="portfolio-img-wrap">
               <img src="assets/images/portfolio-6.webp" alt="Nexus Media Portal" loading="lazy">
               <div class="portfolio-overlay">
@@ -179,11 +180,11 @@
     <section class="section section-alt">
       <div class="container">
         <div class="grid grid-2" style="align-items: center; gap: 4rem;">
-          <div class="image-collage">
+          <div class="image-collage" data-aos="fade-right" data-aos-duration="800">
             <img src="assets/images/agency-office.webp" alt="Apex Global Digital Transformation" class="collage-primary" loading="lazy">
             <img src="assets/images/creative-team.webp" alt="Stackly Project Execution" class="collage-secondary" loading="lazy">
           </div>
-          <div>
+          <div data-aos="fade-left" data-aos-duration="800">
             <span class="badge">FLAGSHIP CASE STUDY</span>
             <h2 class="section-title" style="margin-bottom: 1.25rem;">Apex Global <span>Digital Transformation</span></h2>
             <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
@@ -214,14 +215,14 @@
     <!-- SECTION 4: Industry Insights & Blog Section -->
     <section class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up" data-aos-duration="800">
           <span class="badge">AGENCY INSIGHTS & ARTICLES</span>
           <h2 class="section-title">Latest <span>Thought Leadership</span></h2>
           <p class="section-desc">Expert articles, design strategies, and technology benchmarks from Stackly leaders.</p>
         </div>
 
         <div class="grid grid-3">
-          <article class="blog-card">
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="blog-img-wrap">
               <img src="assets/images/blog-1.webp" alt="The Future of AI in Enterprise UI/UX Architecture" loading="lazy">
               <span class="blog-category">UI/UX Design</span>
@@ -236,7 +237,7 @@
             </div>
           </article>
 
-          <article class="blog-card">
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="blog-img-wrap">
               <img src="assets/images/blog-2.webp" alt="Optimizing Web Architecture for Speed & Security" loading="lazy">
               <span class="blog-category">Web Engineering</span>
@@ -251,7 +252,7 @@
             </div>
           </article>
 
-          <article class="blog-card">
+          <article class="blog-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <div class="blog-img-wrap">
               <img src="assets/images/blog-3.webp" alt="Building High-Converting Brand Identities" loading="lazy">
               <span class="blog-category">Brand Strategy</span>
@@ -272,32 +273,32 @@
     <!-- SECTION 5: Agency Impact & Performance Metrics -->
     <section class="section section-alt">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up" data-aos-duration="800">
           <span class="badge">PROVEN RESULTS</span>
           <h2 class="section-title">Impact Driven By <span>Creative Precision</span></h2>
           <p class="section-desc">Measurable benchmarks achieved across enterprise client partnerships.</p>
         </div>
 
         <div class="grid grid-4" style="text-align: center;">
-          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem;">250+</div>
             <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Projects Delivered</h4>
             <p style="color: var(--text-muted); font-size: 0.95rem;">Enterprise web architectures and brand systems.</p>
           </div>
 
-          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem;">99.4%</div>
             <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Client Retention</h4>
             <p style="color: var(--text-muted); font-size: 0.95rem;">Long-term strategic growth partnerships.</p>
           </div>
 
-          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem;">15+</div>
             <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Years Experience</h4>
             <p style="color: var(--text-muted); font-size: 0.95rem;">Pioneering enterprise UI/UX and web standards.</p>
           </div>
 
-          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
             <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem;">45+</div>
             <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Global Awards</h4>
             <p style="color: var(--text-muted); font-size: 0.95rem;">Recognized for design and technology excellence.</p>
@@ -309,7 +310,7 @@
     <!-- SECTION 6: Insights Newsletter Subscription -->
     <section class="section">
       <div class="container">
-        <div style="background: linear-gradient(135deg, #FFF5F0 0%, #FFFFFF 100%); padding: 3rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); text-align: center; max-width: 860px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.04);">
+        <div style="background: linear-gradient(135deg, #FFF5F0 0%, #FFFFFF 100%); padding: 3rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); text-align: center; max-width: 860px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.04);" data-aos="zoom-in" data-aos-duration="800">
           <span class="badge" style="margin-bottom: 1.25rem;">STAY INFORMED</span>
           <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem;">Subscribe to Stackly Digital Digest</h2>
           <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.6;">
@@ -367,7 +368,7 @@
     <!-- SECTION 7: Image-Backed Call to Action Banner -->
     <section class="section" style="padding-top: 1rem;">
       <div class="container">
-        <div class="cta-banner">
+        <div class="cta-banner" data-aos="zoom-in" data-aos-duration="800">
           <h2>Ready to Elevate Your Digital Brand?</h2>
           <p>Let's collaborate to build an extraordinary digital product that accelerates your revenue and captures market dominance.</p>
           <a href="404.html" class="btn btn-white">Contact Our Team</a>
@@ -430,13 +431,21 @@
       <div class="footer-bottom">
         <p>© 2026 Stackly Creative Agency. All Rights Reserved.</p>
         <div style="display: flex; gap: 1.5rem;">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+  </script>
   <script src="js/script.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
@@ -71,7 +72,7 @@
 
   <main>
     <section class="page-hero">
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-duration="800">
         <h1 class="page-hero-title">Let's Build Something Great</h1>
         <div class="breadcrumbs">
           <a href="index.html">Home</a> <span>/</span> <span class="current">Contact Us</span>
@@ -83,25 +84,25 @@
     <section class="section">
       <div class="container">
         <div class="grid grid-4" style="margin-bottom: 4.5rem;">
-          <div class="service-card text-center" style="padding: 2.25rem 1.5rem;">
+          <div class="service-card text-center" style="padding: 2.25rem 1.5rem;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="service-icon" style="margin: 0 auto 1rem auto;">01</div>
             <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Headquarters</h4>
             <p style="color: var(--text-muted); font-size: 0.95rem;">100 Creative Blvd, Suite 500<br>New York, NY 10001</p>
           </div>
 
-          <div class="service-card text-center" style="padding: 2.25rem 1.5rem;">
+          <div class="service-card text-center" style="padding: 2.25rem 1.5rem;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="service-icon" style="margin: 0 auto 1rem auto;">02</div>
             <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Email Inquiries</h4>
             <p style="color: var(--text-muted); font-size: 0.95rem;">hello@stacklyagency.com<br>proposals@stacklyagency.com</p>
           </div>
 
-          <div class="service-card text-center" style="padding: 2.25rem 1.5rem;">
+          <div class="service-card text-center" style="padding: 2.25rem 1.5rem;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <div class="service-icon" style="margin: 0 auto 1rem auto;">03</div>
             <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Call Us Direct</h4>
             <p style="color: var(--text-muted); font-size: 0.95rem;">+1 (800) 555-STACK<br>+1 (212) 555-0199</p>
           </div>
 
-          <div class="service-card text-center" style="padding: 2.25rem 1.5rem;">
+          <div class="service-card text-center" style="padding: 2.25rem 1.5rem;" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
             <div class="service-icon" style="margin: 0 auto 1rem auto;">04</div>
             <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem;">Office Hours</h4>
             <p style="color: var(--text-muted); font-size: 0.95rem;">Mon - Fri: 9:00 AM - 6:00 PM EST<br>Weekend: Support On-Call</p>
@@ -112,7 +113,7 @@
         <div class="grid grid-2 contact-grid" style="align-items: start;">
           
           <!-- Contact Form -->
-          <div class="contact-form-card">
+          <div class="contact-form-card" data-aos="fade-right" data-aos-duration="800">
             <span class="badge">SEND A MESSAGE</span>
             <h2 class="contact-card-title">Project Inquiry Form</h2>
             <p style="color: var(--text-muted); margin-bottom: 2.25rem;">Fill out the form below. All input fields feature real-time inline validation.</p>
@@ -230,7 +231,7 @@
           </div>
 
           <!-- Office Photo & Map Container -->
-          <div>
+          <div data-aos="fade-left" data-aos-duration="800">
             <div style="margin-bottom: 2.25rem;">
               <img src="assets/images/contact-office.webp" alt="Stackly Headquarters" style="border-radius: var(--radius-lg); box-shadow: var(--card-shadow-hover);">
             </div>
@@ -275,14 +276,14 @@
     <!-- FAQ Accordion -->
     <section class="section section-alt">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up" data-aos-duration="800">
           <span class="badge">HELP & SUPPORT</span>
           <h2 class="section-title">Contact <span>FAQ</span></h2>
           <p class="section-desc">Quick answers before submitting your project briefing.</p>
         </div>
 
         <div class="faq-accordion">
-          <div class="faq-item">
+          <div class="faq-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="faq-header">
               <span>How quickly will I receive a proposal after submitting the form?</span>
               <div class="faq-icon">▼</div>
@@ -292,7 +293,7 @@
             </div>
           </div>
 
-          <div class="faq-item">
+          <div class="faq-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="faq-header">
               <span>Can we sign an NDA prior to sharing sensitive details?</span>
               <div class="faq-icon">▼</div>
@@ -357,14 +358,22 @@
       <div class="footer-bottom">
         <p>© 2026 Stackly Creative Agency. All Rights Reserved.</p>
         <div style="display: flex; gap: 1.5rem;">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
 
   <button class="scroll-top-btn" aria-label="Scroll to top">↑</button>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+  </script>
   <script src="js/script.js"></script>
 </body>
 </html>
