@@ -119,33 +119,114 @@
 
             <div id="contactSuccess" class="form-success"></div>
 
-            <form id="contactForm" novalidate onsubmit="event.preventDefault(); window.location.href='404.html';">
+            <form id="contactForm" novalidate>
               <div class="form-group">
                 <label for="contactName" class="form-label">Full Name *</label>
-                <input type="text" id="contactName" class="form-control" placeholder="e.g. John Smith">
-                <div id="nameError" class="error-message"></div>
+                <input type="text" id="contactName" class="form-control" placeholder="e.g. John Smith" autocomplete="name">
+                <div id="nameError" class="error-message" style="display:none; color: #ef4444; font-size: 0.82rem; margin-top: 0.35rem; font-weight: 600;"></div>
               </div>
 
               <div class="form-group">
                 <label for="contactEmail" class="form-label">Email Address *</label>
-                <input type="email" id="contactEmail" class="form-control" placeholder="Enter your email address">
-                <div id="emailError" class="error-message"></div>
+                <input type="email" id="contactEmail" class="form-control" placeholder="Enter your email address" autocomplete="email">
+                <div id="emailError" class="error-message" style="display:none; color: #ef4444; font-size: 0.82rem; margin-top: 0.35rem; font-weight: 600;"></div>
               </div>
 
               <div class="form-group">
                 <label for="contactSubject" class="form-label">Project Subject / Service *</label>
-                <input type="text" id="contactSubject" class="form-control" placeholder="e.g. Website Redesign & Branding">
-                <div id="subjectError" class="error-message"></div>
+                <input type="text" id="contactSubject" class="form-control" placeholder="e.g. Website Redesign &amp; Branding">
+                <div id="subjectError" class="error-message" style="display:none; color: #ef4444; font-size: 0.82rem; margin-top: 0.35rem; font-weight: 600;"></div>
               </div>
 
               <div class="form-group">
-                <label for="contactMessage" class="form-label">Project Brief & Details *</label>
+                <label for="contactMessage" class="form-label">Project Brief &amp; Details *</label>
                 <textarea id="contactMessage" class="form-control" rows="5" placeholder="Tell us about your timeline, goals, and target budget..."></textarea>
-                <div id="messageError" class="error-message"></div>
+                <div id="messageError" class="error-message" style="display:none; color: #ef4444; font-size: 0.82rem; margin-top: 0.35rem; font-weight: 600;"></div>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Project Brief</button>
+              <button type="submit" id="contactSubmitBtn" class="btn btn-primary" style="width: 100%;">Submit Project Brief</button>
             </form>
+
+            <script>
+              (function () {
+                const form = document.getElementById('contactForm');
+
+                function showError(inputEl, errorEl, msg) {
+                  inputEl.style.borderColor = '#ef4444';
+                  inputEl.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.15)';
+                  errorEl.textContent = msg;
+                  errorEl.style.display = 'block';
+                }
+
+                function clearError(inputEl, errorEl) {
+                  inputEl.style.borderColor = '';
+                  inputEl.style.boxShadow = '';
+                  errorEl.textContent = '';
+                  errorEl.style.display = 'none';
+                }
+
+                // Live validation on blur
+                const fields = [
+                  { id: 'contactName',    errId: 'nameError' },
+                  { id: 'contactEmail',   errId: 'emailError' },
+                  { id: 'contactSubject', errId: 'subjectError' },
+                  { id: 'contactMessage', errId: 'messageError' }
+                ];
+                fields.forEach(function(f) {
+                  const el  = document.getElementById(f.id);
+                  const err = document.getElementById(f.errId);
+                  el.addEventListener('input', function() { validateField(el, err); });
+                  el.addEventListener('blur',  function() { validateField(el, err); });
+                });
+
+                function validateField(el, err) {
+                  const val = el.value.trim();
+                  if (!val) {
+                    showError(el, err, getRequiredMsg(el.id)); return false;
+                  }
+                  if (el.id === 'contactEmail') {
+                    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRx.test(val)) {
+                      showError(el, err, 'Please enter a valid email address (e.g. name@domain.com).'); return false;
+                    }
+                  }
+                  if (el.id === 'contactName' && val.length < 2) {
+                    showError(el, err, 'Full name must be at least 2 characters.'); return false;
+                  }
+                  if (el.id === 'contactSubject' && val.length < 3) {
+                    showError(el, err, 'Subject must be at least 3 characters.'); return false;
+                  }
+                  if (el.id === 'contactMessage' && val.length < 10) {
+                    showError(el, err, 'Please provide at least 10 characters describing your project.'); return false;
+                  }
+                  clearError(el, err); return true;
+                }
+
+                function getRequiredMsg(id) {
+                  const msgs = {
+                    contactName:    'Full name is required.',
+                    contactEmail:   'Email address is required.',
+                    contactSubject: 'Project subject is required.',
+                    contactMessage: 'Project brief details are required.'
+                  };
+                  return msgs[id] || 'This field is required.';
+                }
+
+                form.addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  let isValid = true;
+                  fields.forEach(function(f) {
+                    const el  = document.getElementById(f.id);
+                    const err = document.getElementById(f.errId);
+                    if (!validateField(el, err)) isValid = false;
+                  });
+                  if (isValid) {
+                    window.location.href = '404.html';
+                  }
+                });
+              })();
+            </script>
+
           </div>
 
           <!-- Office Photo & Map Container -->
