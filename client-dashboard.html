@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal Dashboard | Stackly Creative Agency</title>
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    html, body { height: 100%; overflow: hidden; }
+  </style>
+</head>
+<body>
+
+  <!-- Premium Brand Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <div class="preloader-glow-ring"></div>
+        <div class="preloader-spinner-ring"></div>
+        <img src="stackly logo03.webp" alt="Stackly Creative Agency" class="preloader-logo">
+      </div>
+      <div class="preloader-brand-title">STACKLY<span>.</span></div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="client-dashboard.html" class="logo" style="display: inline-flex; align-items: center;">
+          <img src="stackly logo03.webp" alt="Stackly Logo" style="display: block; height: 95px;">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#overview" class="sidebar-link active" data-tab="overview"><span>Overview</span></a>
+        <a href="#active-projects" class="sidebar-link" data-tab="active-projects"><span>Active Projects</span></a>
+        <a href="#milestones" class="sidebar-link" data-tab="milestones"><span>Milestones</span></a>
+        <a href="#messages" class="sidebar-link" data-tab="messages"><span>Messages (2)</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="sidebar-link logout-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Area -->
+    <main class="dashboard-main">
+      
+      <!-- Top Dashboard Header -->
+      <header class="dashboard-header">
+        <div style="display: flex; align-items: center; gap: 0.85rem;">
+          <button class="dashboard-sidebar-toggle" aria-label="Toggle Navigation Sidebar"><i class="fa-solid fa-bars"></i></button>
+          <h2 id="pageTitle" style="font-size: 1.35rem; font-weight: 800;">Overview</h2>
+        </div>
+
+        <!-- Profile Avatar & Dropdown -->
+        <div class="profile-dropdown-wrapper">
+          <div class="user-profile-header-trigger" id="userProfileTrigger" title="Click to view profile menu">
+            <div class="avatar" id="userAvatar">U</div>
+            <div class="user-profile-info">
+              <span class="user-profile-name" id="headerUserName">User Name</span>
+              <span class="user-profile-email" id="headerUserEmail">user@example.com</span>
+            </div>
+          </div>
+          
+          <div class="profile-dropdown" id="profileDropdown">
+            <div class="profile-dropdown-header">
+              <div class="profile-dropdown-avatar" id="dropdownAvatar">U</div>
+              <div class="profile-dropdown-info">
+                <div class="profile-dropdown-name" id="dropdownUserName">User Name</div>
+                <div class="profile-dropdown-email" id="dropdownUserEmail">user@example.com</div>
+                <span class="profile-dropdown-role-badge" id="dropdownUserRole">● Client Account</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body Content -->
+      <div class="dashboard-content">
+        
+        <!-- ================= TAB 1: OVERVIEW ================= -->
+        <div id="tab-overview" class="tab-content-section">
+          <!-- Metrics Row -->
+          <div class="grid grid-4" style="margin-bottom: 2rem;">
+            <div class="metric-card">
+              <div class="metric-title">Active Projects</div>
+              <div class="metric-value">02</div>
+              <div class="metric-trend">● 1 Sprint in Progress</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">Milestone Completion</div>
+              <div class="metric-value">85%</div>
+              <div class="metric-trend">↑ On Schedule</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">Pending Approvals</div>
+              <div class="metric-value">01</div>
+              <div class="metric-trend" style="color: var(--primary);">Action Needed</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">Total Invested</div>
+              <div class="metric-value">$42,500</div>
+              <div class="metric-trend">● All Invoices Current</div>
+            </div>
+          </div>
+
+          <!-- Project Status & Messages Row -->
+          <div class="grid grid-2" style="gap: 2rem; margin-bottom: 2rem;">
+            
+            <!-- Active Project Status Card -->
+            <div class="dashboard-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.2rem; font-weight: 800;">Apex Portal Redesign</h3>
+                <span class="badge" style="margin-bottom: 0; white-space: nowrap;">Sprint 4 / 5</span>
+              </div>
+
+              <!-- Progress Bar -->
+              <div style="margin-bottom: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem;">
+                  <span>Overall Progress</span>
+                  <span style="color: var(--primary);">85%</span>
+                </div>
+                <div style="width: 100%; height: 10px; background: var(--bg-alt); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 85%; height: 100%; background: var(--primary-gradient); border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+
+              <!-- Milestone Checklist -->
+              <div style="display: flex; flex-direction: column;">
+                <div class="milestone-item">
+                  <div class="milestone-text">
+                    <i class="fa-solid fa-circle-check" style="color: #10B981;"></i>
+                    <span>Phase 1: Brand System & Figma Prototype</span>
+                  </div>
+                  <span class="milestone-status status-done">Completed</span>
+                </div>
+
+                <div class="milestone-item">
+                  <div class="milestone-text">
+                    <i class="fa-solid fa-circle-check" style="color: #10B981;"></i>
+                    <span>Phase 2: Frontend HTML5/CSS Architecture</span>
+                  </div>
+                  <span class="milestone-status status-done">Completed</span>
+                </div>
+
+                <div class="milestone-item">
+                  <div class="milestone-text">
+                    <i class="fa-solid fa-hourglass-half" style="color: var(--primary);"></i>
+                    <span>Phase 3: Analytics & CRM Integration</span>
+                  </div>
+                  <span class="milestone-status status-review">In Review</span>
+                </div>
+
+                <div class="milestone-item" style="border-bottom: none;">
+                  <div class="milestone-text">
+                    <i class="fa-regular fa-circle" style="color: var(--text-light);"></i>
+                    <span>Phase 4: Security Audit & Production Launch</span>
+                  </div>
+                  <span class="milestone-status status-upcoming">Upcoming</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Messages Widget -->
+            <div class="dashboard-card" style="display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.2rem; font-weight: 800;">Recent Communications</h3>
+                <a href="#messages" id="quickMsgTabBtn" style="color: var(--primary); font-size: 0.85rem; font-weight: 700; white-space: nowrap;">View All Messages →</a>
+              </div>
+              
+              <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; max-height: 220px; overflow-y: auto; padding-right: 0.25rem;">
+                <div style="background: var(--bg-alt); padding: 0.875rem 1rem; border-radius: var(--radius-sm); max-width: 88%; align-self: flex-start; margin-right: auto;">
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">Alex Mercer (Lead Architect)</div>
+                  <p style="font-size: 0.875rem; line-height: 1.5;">Hi Sarah! We have uploaded the initial analytics integration preview to Sprint 3 for your review.</p>
+                </div>
+
+                <div style="background: var(--primary-light); color: var(--text-main); padding: 0.875rem 1rem; border-radius: var(--radius-sm); max-width: 88%; align-self: flex-end; margin-left: auto;">
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">You</div>
+                  <p style="font-size: 0.875rem; line-height: 1.5;">Awesome, checking it now! The speed benchmark looks fantastic.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Invoices & Deliverables Table -->
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); padding: 2rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 1.5rem;">Recent Invoices & Financial Summary</h3>
+
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Invoice #</th>
+                    <th>Project Milestone</th>
+                    <th>Amount</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#INV-2026-089</td>
+                    <td>Milestone 1 - Initial Design & Prototype</td>
+                    <td>$15,000.00</td>
+                    <td>June 15, 2026</td>
+                    <td><span style="background: #DEF7EC; color: #03543F; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Paid</span></td>
+                    <td><a href="#" onclick="alert('Downloading Invoice PDF...')" style="color: var(--primary); font-weight: 700;">Download PDF</a></td>
+                  </tr>
+                  <tr>
+                    <td>#INV-2026-104</td>
+                    <td>Milestone 2 - Frontend Web Platform</td>
+                    <td>$17,500.00</td>
+                    <td>July 10, 2026</td>
+                    <td><span style="background: #DEF7EC; color: #03543F; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Paid</span></td>
+                    <td><a href="404.html" style="color: var(--primary); font-weight: 700;">Download PDF</a></td>
+                  </tr>
+                  <tr>
+                    <td>#INV-2026-120</td>
+                    <td>Milestone 3 - Production Deployment</td>
+                    <td>$10,000.00</td>
+                    <td>August 05, 2026</td>
+                    <td><span style="background: #FEF3C7; color: #92400E; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Pending</span></td>
+                    <td><a href="404.html" style="color: var(--primary); font-weight: 700;">Pay Now</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 2: ACTIVE PROJECTS ================= -->
+        <div id="tab-active-projects" class="tab-content-section" style="display: none;">
+          <div style="display: flex; flex-direction: column; gap: 2rem;">
+            
+            <!-- Project 1 Card -->
+            <div style="background: #FFFFFF; padding: 2.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <h3 style="font-size: 1.35rem; font-weight: 800;">Apex Portal Redesign & Web Platform</h3>
+                    <span style="background: #DEF7EC; color: #03543F; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Sprint 4 / 5 Active</span>
+                  </div>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Full-stack portal modernization, customer dashboard UI/UX, and real-time CRM API integration.</p>
+                </div>
+                <div class="card-action-btns">
+                  <button class="btn btn-outline" onclick="window.location.href='404.html'"><i class="fa-solid fa-palette" style="margin-right: 0.4rem;"></i>Figma Design</button>
+                  <button class="btn btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-rocket" style="margin-right: 0.4rem;"></i>Preview Staging Build</button>
+                </div>
+              </div>
+
+              <!-- Tech Stack & Metadata -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; padding: 1.25rem; background: var(--bg-alt); border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Lead Architect</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-top: 0.25rem;">Alex Mercer</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Target Delivery</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-top: 0.25rem;">August 15, 2026</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Repository Status</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: #10B981; margin-top: 0.25rem;">● 48 Commits (Main)</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Build Health</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: #10B981; margin-top: 0.25rem;">99.8% Test Coverage</div>
+                </div>
+              </div>
+
+              <!-- Progress Bar -->
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem;">
+                  <span>Overall Build Completion</span>
+                  <span style="color: var(--primary);">85%</span>
+                </div>
+                <div style="width: 100%; height: 12px; background: var(--bg-alt); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 85%; height: 100%; background: var(--primary-gradient); border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 Card -->
+            <div style="background: #FFFFFF; padding: 2.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <h3 style="font-size: 1.35rem; font-weight: 800;">Apex Mobile Logistics Companion App</h3>
+                    <span style="background: #E0E7FF; color: #3730A3; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Phase 1 Discovery</span>
+                  </div>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Cross-platform iOS & Android driver tracking app with offline sync and push notifications.</p>
+                </div>
+                <div class="card-action-btns">
+                  <button class="btn btn-outline" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-code" style="margin-right: 0.4rem;"></i>Architecture Spec</button>
+                  <button class="btn btn-outline" onclick="window.location.href='404.html'"><i class="fa-solid fa-calendar-days" style="margin-right: 0.4rem;"></i>Schedule Call</button>
+                </div>
+              </div>
+
+              <!-- Tech Stack & Metadata -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; padding: 1.25rem; background: var(--bg-alt); border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Lead UI/UX Designer</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-top: 0.25rem;">Elena Rostova</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Target Delivery</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-top: 0.25rem;">October 30, 2026</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Framework</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-top: 0.25rem;">React Native / Expo</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Status</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--primary); margin-top: 0.25rem;">Wireframes In Progress</div>
+                </div>
+              </div>
+
+              <!-- Progress Bar -->
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem;">
+                  <span>Discovery & Wireframe Progress</span>
+                  <span style="color: var(--primary);">25%</span>
+                </div>
+                <div style="width: 100%; height: 12px; background: var(--bg-alt); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 25%; height: 100%; background: var(--primary-gradient); border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= TAB 3: MILESTONES ================= -->
+        <div id="tab-milestones" class="tab-content-section" style="display: none;">
+          <div class="dashboard-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+              <div style="flex: 1; min-width: 240px;">
+                <h3 style="font-size: 1.35rem; font-weight: 800; line-height: 1.3;">Project Delivery Roadmap & Milestone Log</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.35rem; line-height: 1.5;">Track sprint approvals, deliverables, and sign-offs for Apex Portal Redesign.</p>
+              </div>
+              <div class="card-action-btns">
+                <button class="btn btn-outline" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf" style="margin-right: 0.4rem;"></i>Download Roadmap PDF</button>
+              </div>
+            </div>
+
+            <!-- Timeline / Milestones Accordion & List -->
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+              
+              <!-- Milestone 1 -->
+              <div class="milestone-card">
+                <div class="milestone-card-header">
+                  <div class="milestone-title-group">
+                    <span class="milestone-icon-badge success"><i class="fa-solid fa-check"></i></span>
+                    <h4>Milestone 1: Brand System & Figma Interactive Prototype</h4>
+                  </div>
+                  <span class="milestone-status-pill success">Approved & Completed</span>
+                </div>
+                <p class="milestone-desc">Design system tokens, color palettes, micro-interactions, responsive mobile views, and stakeholder prototype approval.</p>
+                <div class="milestone-meta">
+                  Sign-off Date: June 14, 2026 | Approved by Sarah Jenkins | Deliverables: Figma Prototype, Brand Assets (.zip)
+                </div>
+              </div>
+
+              <!-- Milestone 2 -->
+              <div class="milestone-card">
+                <div class="milestone-card-header">
+                  <div class="milestone-title-group">
+                    <span class="milestone-icon-badge success"><i class="fa-solid fa-check"></i></span>
+                    <h4>Milestone 2: Frontend HTML5/CSS Architecture & UI Components</h4>
+                  </div>
+                  <span class="milestone-status-pill success">Approved & Completed</span>
+                </div>
+                <p class="milestone-desc">Semantic HTML5 structure, custom CSS design system, responsive grid layouts, animations, and cross-browser QA testing.</p>
+                <div class="milestone-meta">
+                  Sign-off Date: July 08, 2026 | Approved by Alex Mercer & Sarah Jenkins | Deliverables: Git Repository Branch `v2.0`
+                </div>
+              </div>
+
+              <!-- Milestone 3 -->
+              <div class="milestone-card active">
+                <div class="milestone-card-header">
+                  <div class="milestone-title-group">
+                    <span class="milestone-icon-badge primary"><i class="fa-solid fa-clock"></i></span>
+                    <h4>Milestone 3: Analytics Dashboard & CRM API Integration</h4>
+                  </div>
+                  <span class="milestone-status-pill primary">85% In Review</span>
+                </div>
+                <p class="milestone-desc">Integration of live analytics charts, real-time lead inbox webhook sync, invoice data tables, and client auth state persistence.</p>
+                <div class="milestone-actions-wrap">
+                  <div class="card-action-btns">
+                    <button class="btn btn-primary" onclick="window.location.href='404.html'">Approve Milestone 3</button>
+                    <button class="btn btn-outline" onclick="window.location.href='404.html'">Request Revision</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Milestone 4 -->
+              <div class="milestone-card" style="opacity: 0.75;">
+                <div class="milestone-card-header">
+                  <div class="milestone-title-group">
+                    <span class="milestone-icon-badge neutral"><i class="fa-solid fa-circle-notch"></i></span>
+                    <h4>Milestone 4: Security Audit, SSL & Production Launch</h4>
+                  </div>
+                  <span class="milestone-status-pill neutral">Upcoming (Aug 1 - Aug 15)</span>
+                </div>
+                <p class="milestone-desc">Final penetration testing, SSL certificate setup, CDN domain propagation, and production release cutover.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 4: MESSAGES ================= -->
+        <div id="tab-messages" class="tab-content-section" style="display: none;">
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: grid; grid-template-columns: 280px 1fr; min-height: 520px; overflow: hidden;">
+            
+            <!-- Message Contacts List -->
+            <div style="border-right: 1px solid var(--border-color); background: var(--bg-alt); padding: 1.25rem;">
+              <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);">Agency Team Chat</h4>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <div style="background: #FFFFFF; padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--primary); cursor: pointer;">
+                  <div style="font-weight: 700; font-size: 0.9rem; color: var(--primary);">Alex Mercer</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Lead Architect</div>
+                  <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;">● Online</div>
+                </div>
+
+                <div style="background: transparent; padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid transparent; cursor: pointer;">
+                  <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-main);">Elena Rostova</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">UI/UX Director</div>
+                  <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.25rem;">Away (Last active 2h ago)</div>
+                </div>
+
+                <div style="background: transparent; padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid transparent; cursor: pointer;">
+                  <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-main);">Billing & Support</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Financial Helpdesk</div>
+                  <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;">● Online</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <div style="padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h4 style="font-weight: 800; font-size: 1.05rem;">Alex Mercer — Lead Architect</h4>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Apex Portal Redesign & Web Platform Project</div>
+                </div>
+                <span style="background: #DEF7EC; color: #03543F; padding: 0.2rem 0.65rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700;">Direct Channel Active</span>
+              </div>
+
+              <!-- Message History Container -->
+              <div id="fullChatHistory" style="flex-grow: 1; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; overflow-y: auto; max-height: 340px;">
+                
+                <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-sm); max-width: 75%; align-self: flex-start;">
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem;">Alex Mercer (Lead Architect) • 10:14 AM</div>
+                  <p style="font-size: 0.9rem; line-height: 1.5;">Hi Sarah! We have uploaded the initial analytics integration preview to Sprint 3 for your review. Please test the data table filters when you get a chance!</p>
+                </div>
+
+                <div style="background: var(--primary-light); color: var(--text-main); padding: 1rem; border-radius: var(--radius-sm); max-width: 75%; align-self: flex-end;">
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem;">You (Sarah Jenkins) • 10:28 AM</div>
+                  <p style="font-size: 0.9rem; line-height: 1.5;">Awesome, checking it now! The speed benchmark looks fantastic. The page load transitions are super smooth.</p>
+                </div>
+
+                <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-sm); max-width: 75%; align-self: flex-start;">
+                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem;">Alex Mercer (Lead Architect) • 10:45 AM</div>
+                  <p style="font-size: 0.9rem; line-height: 1.5;">Great to hear! We are now finalizing the security penetration tests ahead of Milestone 4 cutover. Let us know if you need any adjustments.</p>
+                </div>
+
+              </div>
+
+              <!-- Chat Input Form -->
+              <form id="chatForm" style="padding: 1.25rem; border-top: 1px solid var(--border-color); display: flex; gap: 0.75rem;" onsubmit="event.preventDefault(); window.location.href='404.html';">
+                <input type="text" id="chatInput" class="form-control" placeholder="Write your message to Alex Mercer..." required style="font-size: 0.95rem;">
+                <button type="submit" class="btn btn-primary" style="padding: 0.7rem 1.5rem; flex-shrink: 0;">Send Message</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Interactive Tab Switching & Dynamic User Session Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      'use strict';
+
+      // 1. Verify User Session
+      const sessionRaw = localStorage.getItem('stackly_user');
+      if (!sessionRaw) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      let currentUser = {};
+      try {
+        currentUser = JSON.parse(sessionRaw);
+      } catch(e) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      if (!currentUser.loggedIn) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // 2. Populate Top-Right User Profile Avatar & Floating Dropdown
+      const userAvatar = document.getElementById('userAvatar');
+      const userProfileTrigger = document.getElementById('userProfileTrigger');
+      const headerUserName = document.getElementById('headerUserName');
+      const headerUserEmail = document.getElementById('headerUserEmail');
+      const profileDropdown = document.getElementById('profileDropdown');
+      const dropdownAvatar = document.getElementById('dropdownAvatar');
+      const dropdownUserName = document.getElementById('dropdownUserName');
+      const dropdownUserEmail = document.getElementById('dropdownUserEmail');
+      const dropdownUserRole = document.getElementById('dropdownUserRole');
+
+      if (userAvatar) userAvatar.textContent = currentUser.initials || 'U';
+      if (headerUserName) headerUserName.textContent = currentUser.name || 'User Name';
+      if (headerUserEmail) headerUserEmail.textContent = currentUser.email || 'user@example.com';
+      if (dropdownAvatar) dropdownAvatar.textContent = currentUser.initials || 'U';
+      if (dropdownUserName) dropdownUserName.textContent = currentUser.name || 'User Name';
+      if (dropdownUserEmail) dropdownUserEmail.textContent = currentUser.email || 'user@example.com';
+      if (dropdownUserRole) dropdownUserRole.textContent = currentUser.role === 'admin' ? '★ Agency Admin' : '● Client Account';
+
+      // Dropdown toggle & outside click close
+      const profileBtn = userProfileTrigger || userAvatar;
+      if (profileBtn && profileDropdown) {
+        profileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          profileDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!profileDropdown.contains(e.target) && !profileBtn.contains(e.target)) {
+            profileDropdown.classList.remove('open');
+          }
+        });
+      }
+
+      // 3. Handle Sign Out (Clear session and redirect)
+      const logoutLinks = document.querySelectorAll('.logout-link, #dropdownLogoutBtn');
+      logoutLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('stackly_user');
+          window.location.href = 'login.html';
+        });
+      });
+
+      // 4. Tab Navigation & Dynamic Page Titles
+      const links = document.querySelectorAll('.sidebar-menu .sidebar-link[data-tab]');
+      const tabContents = document.querySelectorAll('.tab-content-section');
+      const pageTitle = document.getElementById('pageTitle');
+      const pageSubTitle = document.getElementById('pageSubTitle');
+      const quickMsgTabBtn = document.getElementById('quickMsgTabBtn');
+
+      const titles = {
+        'overview': { title: 'Overview', sub: 'Client Portal Dashboard' },
+        'active-projects': { title: 'Projects', sub: 'Manage ongoing builds & deliverables' },
+        'milestones': { title: 'Milestones', sub: 'Sprint roadmap & project completion' },
+        'messages': { title: 'Messages', sub: 'Direct messaging channel with agency team' }
+      };
+
+      function switchTab(tabId) {
+        links.forEach(l => l.classList.remove('active'));
+        tabContents.forEach(c => c.style.display = 'none');
+
+        const activeLink = document.querySelector(`.sidebar-link[data-tab="${tabId}"]`);
+        const activeContent = document.getElementById(`tab-${tabId}`);
+
+        if (activeLink) activeLink.classList.add('active');
+        if (activeContent) activeContent.style.display = 'block';
+
+        if (titles[tabId] && pageTitle) {
+          pageTitle.textContent = titles[tabId].title;
+          if (pageSubTitle) pageSubTitle.textContent = titles[tabId].sub;
+        }
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const tabId = link.getAttribute('data-tab');
+          switchTab(tabId);
+          window.location.hash = tabId;
+          if (window.innerWidth <= 992) {
+            document.querySelector('.sidebar')?.classList.remove('active');
+          }
+        });
+      });
+
+      // Mobile Sidebar Toggle
+      const dashSidebarToggle = document.querySelector('.dashboard-sidebar-toggle');
+      const dashSidebarClose = document.querySelector('.sidebar-close-btn');
+      const dashSidebar = document.querySelector('.sidebar');
+
+      if (dashSidebarToggle && dashSidebar) {
+        dashSidebarToggle.addEventListener('click', () => {
+          dashSidebar.classList.add('active');
+        });
+      }
+      if (dashSidebarClose && dashSidebar) {
+        dashSidebarClose.addEventListener('click', () => {
+          dashSidebar.classList.remove('active');
+        });
+      }
+
+      if (quickMsgTabBtn) {
+        quickMsgTabBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          switchTab('messages');
+          window.location.hash = 'messages';
+        });
+      }
+
+      // Handle hash navigation on page load
+      const initialHash = window.location.hash.replace('#', '');
+      if (initialHash && titles[initialHash]) {
+        switchTab(initialHash);
+      } else {
+        switchTab('overview');
+      }
+
+      // 5. Interactive Chat Messaging Form
+      const chatForm = document.getElementById('chatForm');
+      const chatInput = document.getElementById('chatInput');
+
+      if (chatForm) {
+        chatForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const text = chatInput ? chatInput.value.trim() : '';
+          if (!text) return;
+          window.location.href = '404.html';
+        });
+      }
+
+          // Auto Reply Simulation
+          setTimeout(() => {
+            const replyDiv = document.createElement('div');
+            replyDiv.style.cssText = 'background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-sm); max-width: 75%; align-self: flex-start;';
+            replyDiv.innerHTML = `
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem;">Alex Mercer (Lead Architect) • Just now</div>
+              <p style="font-size: 0.9rem; line-height: 1.5;">Message received! Thank you ${currentUser.name || 'User'}, I have logged this update with our team.</p>
+            `;
+            fullChatHistory.appendChild(replyDiv);
+            fullChatHistory.scrollTop = fullChatHistory.scrollHeight;
+          }, 1000);
+        });
+      }
+    });
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found - Stackly Creative Agency</title>
+  <meta name="description" content="The requested page could not be found on Stackly Creative Agency.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg, #FFF5F0 0%, #FFFFFF 100%); margin: 0; padding: 2rem 1rem;">
+
+  <!-- Premium Brand Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <div class="preloader-glow-ring"></div>
+        <div class="preloader-spinner-ring"></div>
+        <img src="stackly logo03.webp" alt="Stackly Creative Agency" class="preloader-logo">
+      </div>
+      <div class="preloader-brand-title">STACKLY<span>.</span></div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standalone 404 Container (No Navbar, No Footer) -->
+  <main style="width: 100%; max-width: 820px; margin: 0 auto;">
+    <div class="error-404-card">
+      
+      <!-- Stackly Logo Header -->
+      <div style="margin-bottom: 2rem; display: flex; justify-content: center;">
+        <a href="index.html" class="logo">
+          <img src="stackly logo03.webp" alt="Stackly Logo" style="height: 85px; max-height: 85px; width: auto;">
+        </a>
+      </div>
+
+      <!-- 404 Large Number Display -->
+      <div class="error-404-number">
+        404
+      </div>
+      
+      <div style="margin-bottom: 1.25rem;"><span class="badge">ERROR ROUTE</span></div>
+      
+      <h1 class="error-404-title">Lost in the Digital Dimension?</h1>
+      
+      <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 580px; margin: 0 auto 2.25rem auto; line-height: 1.7;">
+        The page or route you are attempting to access has been moved, renamed, or does not exist on our server network.
+      </p>
+
+      <!-- Action Buttons with Go Back -->
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button onclick="history.back()" class="btn btn-outline">Go Back</button>
+        <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

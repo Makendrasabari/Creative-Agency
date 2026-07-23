@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio & Insights | Stackly Creative Agency</title>
+  <meta name="description" content="Explore Stackly's award-winning portfolio of enterprise client projects, UI/UX designs, web platforms, and industry insights.">
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Premium Brand Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <div class="preloader-glow-ring"></div>
+        <div class="preloader-spinner-ring"></div>
+        <img src="stackly logo03.webp" alt="Stackly Creative Agency" class="preloader-logo">
+      </div>
+      <div class="preloader-brand-title">STACKLY<span>.</span></div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="stackly logo03.webp" alt="Stackly Creative Agency">
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link active">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.35rem; font-size: 0.9rem;">Login</a>
+        <button class="mobile-toggle" aria-label="Toggle Mobile Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu-overlay"></div>
+  <aside class="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="logo">
+        <img src="stackly logo03.webp" alt="Stackly Logo">
+      </a>
+      <div class="close-drawer"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="services.html" class="mobile-nav-link">Services</a>
+      <a href="portfolio.html" class="mobile-nav-link active">Portfolio</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <div class="mobile-nav-divider"></div>
+      <a href="login.html" class="mobile-nav-login"><i class="fa-solid fa-right-to-bracket" style="margin-right: 0.5rem;"></i>Login</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: Page Hero Banner -->
+    <section class="page-hero">
+      <div class="container text-center">
+        <span class="badge" style="margin-bottom: 1.25rem;">PORTFOLIO & INSIGHTS HUB</span>
+        <h1 class="page-hero-title" style="font-size: 3.5rem; margin-bottom: 1rem;">Work Showcase & Insights</h1>
+        <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; max-width: 720px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+          Explore our portfolio of award-winning enterprise client transformations alongside thought leadership articles from our agency strategists.
+        </p>
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a> <span>/</span> <span class="current">Portfolio & Insights</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Filterable Portfolio Gallery Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">CURATED GALLERY</span>
+          <h2 class="section-title">Explore Our <span>Creative Work</span></h2>
+          <p class="section-desc">Filter through our multi-disciplinary client success stories below.</p>
+        </div>
+
+        <!-- Interactive Category Filters -->
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+          <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+          <button class="filter-btn" data-filter="web">Web Architecture</button>
+          <button class="filter-btn" data-filter="marketing">Digital Marketing</button>
+        </div>
+
+        <!-- Portfolio Cards Grid -->
+        <div class="grid grid-3">
+          <div class="portfolio-card" data-category="branding">
+            <div class="portfolio-img-wrap">
+              <img src="assets/images/portfolio-1.webp" alt="Vortex Financial Identity" loading="lazy">
+              <div class="portfolio-overlay">
+                <span class="portfolio-cat">Brand Strategy</span>
+                <h3 class="portfolio-title">Vortex Financial Identity</h3>
+                <span class="portfolio-btn">View Details</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card" data-category="uiux">
+            <div class="portfolio-img-wrap">
+              <img src="assets/images/portfolio-2.webp" alt="FinVibe Banking Mobile App" loading="lazy">
+              <div class="portfolio-overlay">
+                <span class="portfolio-cat">UI/UX Design</span>
+                <h3 class="portfolio-title">FinVibe Mobile Banking</h3>
+                <span class="portfolio-btn">View Details</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card" data-category="web">
+            <div class="portfolio-img-wrap">
+              <img src="assets/images/portfolio-3.webp" alt="Apex E-Commerce Platform" loading="lazy">
+              <div class="portfolio-overlay">
+                <span class="portfolio-cat">Web Architecture</span>
+                <h3 class="portfolio-title">Apex Global E-Commerce</h3>
+                <span class="portfolio-btn">View Details</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card" data-category="uiux">
+            <div class="portfolio-img-wrap">
+              <img src="assets/images/portfolio-4.webp" alt="SaaSify Cloud Dashboard" loading="lazy">
+              <div class="portfolio-overlay">
+                <span class="portfolio-cat">UI/UX Design</span>
+                <h3 class="portfolio-title">SaaSify Suite Dashboard</h3>
+                <span class="portfolio-btn">View Details</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card" data-category="marketing">
+            <div class="portfolio-img-wrap">
+              <img src="assets/images/portfolio-5.webp" alt="Elevate Labs Campaign" loading="lazy">
+              <div class="portfolio-overlay">
+                <span class="portfolio-cat">Digital Marketing</span>
+                <h3 class="portfolio-title">Elevate Growth Campaign</h3>
+                <span class="portfolio-btn">View Details</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card" data-category="web">
+            <div class="portfolio-img-wrap">
+              <img src="assets/images/portfolio-6.webp" alt="Nexus Media Portal" loading="lazy">
+              <div class="portfolio-overlay">
+                <span class="portfolio-cat">Web Development</span>
+                <h3 class="portfolio-title">Nexus Streaming Portal</h3>
+                <span class="portfolio-btn">View Details</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Flagship Case Study Spotlight Deep Dive -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+          <div class="image-collage">
+            <img src="assets/images/agency-office.webp" alt="Apex Global Digital Transformation" class="collage-primary" loading="lazy">
+            <img src="assets/images/creative-team.webp" alt="Stackly Project Execution" class="collage-secondary" loading="lazy">
+          </div>
+          <div>
+            <span class="badge">FLAGSHIP CASE STUDY</span>
+            <h2 class="section-title" style="margin-bottom: 1.25rem;">Apex Global <span>Digital Transformation</span></h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
+              Stackly partnered with Apex Global Logistics to rebuild their enterprise Web architecture from the ground up, implementing zero-lag UI/UX workflows and high-speed data integration.
+            </p>
+            
+            <div class="grid grid-3" style="margin-bottom: 2.25rem;">
+              <div style="background: #FFFFFF; padding: 1.25rem; border-radius: var(--radius-md); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">+185%</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-top: 0.25rem;">Conversion Rate</div>
+              </div>
+              <div style="background: #FFFFFF; padding: 1.25rem; border-radius: var(--radius-md); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">&lt;0.8s</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-top: 0.25rem;">Load Time</div>
+              </div>
+              <div style="background: #FFFFFF; padding: 1.25rem; border-radius: var(--radius-md); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">+240%</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-top: 0.25rem;">Organic Growth</div>
+              </div>
+            </div>
+
+            <a href="contact.html" class="btn btn-primary">Schedule Case Study Briefing <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Industry Insights & Blog Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">AGENCY INSIGHTS & ARTICLES</span>
+          <h2 class="section-title">Latest <span>Thought Leadership</span></h2>
+          <p class="section-desc">Expert articles, design strategies, and technology benchmarks from Stackly leaders.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="blog-card">
+            <div class="blog-img-wrap">
+              <img src="assets/images/blog-1.webp" alt="The Future of AI in Enterprise UI/UX Architecture" loading="lazy">
+              <span class="blog-category">UI/UX Design</span>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>July 2026</span><i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin: 0 0.4rem;"></i><span>5 Min Read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html" style="color: inherit; text-decoration: none;">The Future of AI in Enterprise UI/UX Architecture</a></h3>
+              <p class="blog-excerpt">Discover how generative design systems and predictive user interface patterns are reshaping digital product experiences.</p>
+              <a href="404.html" class="link-arrow">Read Article</a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-img-wrap">
+              <img src="assets/images/blog-2.webp" alt="Optimizing Web Architecture for Speed & Security" loading="lazy">
+              <span class="blog-category">Web Engineering</span>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>June 2026</span><i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin: 0 0.4rem;"></i><span>8 Min Read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html" style="color: inherit; text-decoration: none;">Optimizing Web Platform Architecture for Speed & Security</a></h3>
+              <p class="blog-excerpt">Technical deep dive into zero-downtime deployments, micro-frontends, and sub-second rendering benchmarks.</p>
+              <a href="404.html" class="link-arrow">Read Article</a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-img-wrap">
+              <img src="assets/images/blog-3.webp" alt="Building High-Converting Brand Identities" loading="lazy">
+              <span class="blog-category">Brand Strategy</span>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>June 2026</span><i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin: 0 0.4rem;"></i><span>6 Min Read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html" style="color: inherit; text-decoration: none;">Building High-Converting Brand Identities for SaaS Leaders</a></h3>
+              <p class="blog-excerpt">Strategic framework for crafting brand positioning, typography systems, and visual identity guides that scale globally.</p>
+              <a href="404.html" class="link-arrow">Read Article</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Agency Impact & Performance Metrics -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">PROVEN RESULTS</span>
+          <h2 class="section-title">Impact Driven By <span>Creative Precision</span></h2>
+          <p class="section-desc">Measurable benchmarks achieved across enterprise client partnerships.</p>
+        </div>
+
+        <div class="grid grid-4" style="text-align: center;">
+          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+            <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem;">250+</div>
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Projects Delivered</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Enterprise web architectures and brand systems.</p>
+          </div>
+
+          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+            <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem;">99.4%</div>
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Client Retention</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Long-term strategic growth partnerships.</p>
+          </div>
+
+          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+            <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem;">15+</div>
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Years Experience</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Pioneering enterprise UI/UX and web standards.</p>
+          </div>
+
+          <div style="background: #FFFFFF; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+            <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem;">45+</div>
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Global Awards</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Recognized for design and technology excellence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Insights Newsletter Subscription -->
+    <section class="section">
+      <div class="container">
+        <div style="background: linear-gradient(135deg, #FFF5F0 0%, #FFFFFF 100%); padding: 3rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); text-align: center; max-width: 860px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.04);">
+          <span class="badge" style="margin-bottom: 1.25rem;">STAY INFORMED</span>
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem;">Subscribe to Stackly Digital Digest</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.6;">
+            Get curated monthly insights on UI/UX design trends, enterprise frontend engineering, and brand strategy benchmarks.
+          </p>
+
+          <form style="display: flex; gap: 0.85rem; max-width: 540px; margin: 0 auto; flex-wrap: wrap;" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Stackly Insights!');">
+            <input type="email" placeholder="Enter your business email address..." required style="flex: 1 1 200px; width: 100%; padding: 0.95rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); outline: none; font-family: inherit; font-size: 0.95rem;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe Now</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Image-Backed Call to Action Banner -->
+    <section class="section" style="padding-top: 1rem;">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Ready to Elevate Your Digital Brand?</h2>
+          <p>Let's collaborate to build an extraordinary digital product that accelerates your revenue and captures market dominance.</p>
+          <a href="contact.html" class="btn btn-white">Contact Our Team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="scroll-top-btn" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Master Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="stackly logo03.webp" alt="Stackly Logo">
+          </a>
+          <p>Stackly is a full-service creative agency empowering enterprise brands through innovative UI/UX, robust web platforms, and data-driven growth marketing.</p>
+          <div class="footer-socials">
+            <a href="404.html" aria-label="Instagram"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="404.html" aria-label="Facebook"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="404.html" aria-label="Twitter"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <div class="footer-links">
+            <a href="404.html">Brand Strategy</a>
+            <a href="404.html">UI/UX Design</a>
+            <a href="404.html">Web Development</a>
+            <a href="404.html">Digital Marketing</a>
+            <a href="404.html">SEO Analytics</a>
+            <a href="404.html">Content Strategy</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Contact</h4>
+          <div class="footer-links">
+            <p style="color: var(--text-light);">Address: 100 Creative Boulevard, Suite 500, New York, NY</p>
+            <p style="color: var(--text-light);">Email: hello@stacklyagency.com</p>
+            <p style="color: var(--text-light);">Phone: +1 (800) 555-STACK</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Stackly Creative Agency. All Rights Reserved.</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

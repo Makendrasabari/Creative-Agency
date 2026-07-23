@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Stackly Creative Agency Portal</title>
+  <meta name="description" content="Log in to Stackly Creative Agency Client Portal or Agency Admin Dashboard.">
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Premium Brand Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <div class="preloader-glow-ring"></div>
+        <div class="preloader-spinner-ring"></div>
+        <img src="stackly logo03.webp" alt="Stackly Creative Agency" class="preloader-logo">
+      </div>
+      <div class="preloader-brand-title">STACKLY<span>.</span></div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Wrapper Container -->
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      
+      <!-- Back to Home Link (Top) -->
+      <div style="margin-bottom: 1.25rem;">
+        <a href="index.html" style="color: var(--text-muted); font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">
+          <i class="fa-solid fa-arrow-left" style="font-size: 0.8rem;"></i> Back to Home Page
+        </a>
+      </div>
+
+      <!-- Card Header -->
+      <div class="auth-header">
+        <a href="index.html" class="logo" style="display: inline-flex; justify-content: center; margin: 0 auto;">
+          <img src="stackly logo03.webp" alt="Stackly Logo" style="margin: 0 auto; display: block; height: 85px; max-height: 85px;">
+        </a>
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-top: 1rem; color: var(--text-main);">Welcome Back</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">Select your role to access your dedicated portal dashboard.</p>
+      </div>
+
+      <!-- Role Selector Tabs -->
+      <div class="role-selector">
+        <button type="button" class="role-btn active" id="roleClientBtn" data-role="client">Client Portal</button>
+        <button type="button" class="role-btn" id="roleAdminBtn" data-role="admin">Agency Admin</button>
+      </div>
+
+      <!-- Login Notification Banner -->
+      <div id="loginSuccess" class="form-success">Redirecting to your dashboard...</div>
+
+      <!-- Login Form -->
+      <form id="loginForm" novalidate>
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Email Address *</label>
+          <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email address">
+          <div id="loginEmailError" class="error-message"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="loginPassword" class="form-label">Password *</label>
+          <input type="password" id="loginPassword" class="form-control" placeholder="••••••••">
+          <div id="loginPasswordError" class="error-message"></div>
+        </div>
+
+        <!-- Remember Me & Forgot Password -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem 1rem; margin-bottom: 1.75rem; font-size: 0.9rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); cursor: pointer; white-space: nowrap;">
+            <input type="checkbox" id="rememberMe" style="accent-color: var(--primary); width: 16px; height: 16px; flex-shrink: 0;">
+            <span>Remember Me</span>
+          </label>
+          <a href="404.html" style="color: var(--primary); font-weight: 600; white-space: nowrap;">Forgot Password?</a>
+        </div>
+
+        <!-- Login Button -->
+        <button type="submit" id="loginSubmitBtn" class="btn btn-primary" style="width: 100%; font-size: 1rem;">Log In</button>
+
+        <!-- Create Account Section -->
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+          Don't have an account? <a href="signup.html" id="createAccountBtn" style="color: var(--primary); font-weight: 700; white-space: nowrap; display: inline-block;">Create an Account</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Inline Validation & Role Redirect JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      'use strict';
+
+      let currentRole = 'client';
+      const roleClientBtn = document.getElementById('roleClientBtn');
+      const roleAdminBtn = document.getElementById('roleAdminBtn');
+      const loginForm = document.getElementById('loginForm');
+
+      const loginEmail = document.getElementById('loginEmail');
+      const loginPassword = document.getElementById('loginPassword');
+      const loginEmailError = document.getElementById('loginEmailError');
+      const loginPasswordError = document.getElementById('loginPasswordError');
+      const loginSuccess = document.getElementById('loginSuccess');
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+      // Role Selection Action
+      roleClientBtn.addEventListener('click', () => {
+        currentRole = 'client';
+        roleClientBtn.classList.add('active');
+        roleAdminBtn.classList.remove('active');
+      });
+
+      roleAdminBtn.addEventListener('click', () => {
+        currentRole = 'admin';
+        roleAdminBtn.classList.add('active');
+        roleClientBtn.classList.remove('active');
+      });
+
+      // Form Validation & Redirect
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let isValid = true;
+
+        // Email Validation
+        const emailValue = loginEmail.value.trim();
+        if (!emailValue) {
+          loginEmail.classList.add('input-error');
+          loginEmailError.textContent = 'Email address is required.';
+          loginEmailError.classList.add('show');
+          isValid = false;
+        } else if (!emailRegex.test(emailValue)) {
+          loginEmail.classList.add('input-error');
+          loginEmailError.textContent = 'Please enter a valid email format (e.g. user@domain.com).';
+          loginEmailError.classList.add('show');
+          isValid = false;
+        } else {
+          loginEmail.classList.remove('input-error');
+          loginEmailError.classList.remove('show');
+        }
+
+        // Password Validation
+        const passwordValue = loginPassword.value.trim();
+        if (!passwordValue) {
+          loginPassword.classList.add('input-error');
+          loginPasswordError.textContent = 'Password field must not be empty.';
+          loginPasswordError.classList.add('show');
+          isValid = false;
+        } else {
+          loginPassword.classList.remove('input-error');
+          loginPasswordError.classList.remove('show');
+        }
+
+        // If Validation Passes -> Save Session & Redirect
+        if (isValid) {
+          const username = emailValue.split('@')[0] || 'User';
+          const nameParts = username.split(/[\._\-]+/).filter(Boolean);
+          let derivedName = 'User';
+          if (nameParts.length > 0) {
+            derivedName = nameParts.map(p => p.charAt(0).toUpperCase() + p.slice(1).toLowerCase()).join(' ');
+          }
+
+          const words = derivedName.split(/\s+/);
+          let initials = 'U';
+          if (words.length === 1 && words[0].length > 0) {
+            initials = words[0].charAt(0).toUpperCase();
+          } else if (words.length > 1) {
+            initials = (words[0].charAt(0) + words[words.length - 1].charAt(0)).toUpperCase();
+          }
+
+          const userSession = {
+            email: emailValue,
+            name: derivedName,
+            initials: initials,
+            role: currentRole,
+            loggedIn: true
+          };
+
+          localStorage.setItem('stackly_user', JSON.stringify(userSession));
+
+          loginSuccess.classList.add('show');
+          loginSuccess.textContent = `Login successful! Redirecting to ${currentRole === 'client' ? 'Client Portal' : 'Agency Admin Dashboard'}...`;
+
+          setTimeout(() => {
+            if (currentRole === 'client') {
+              window.location.href = 'client-dashboard.html';
+            } else {
+              window.location.href = 'admin-dashboard.html';
+            }
+          }, 1000);
+        }
+      });
+    });
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agency Admin Dashboard | Stackly Creative Agency</title>
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    html, body { height: 100%; overflow: hidden; }
+  </style>
+</head>
+<body>
+
+  <!-- Premium Brand Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <div class="preloader-glow-ring"></div>
+        <div class="preloader-spinner-ring"></div>
+        <img src="stackly logo03.webp" alt="Stackly Creative Agency" class="preloader-logo">
+      </div>
+      <div class="preloader-brand-title">STACKLY<span>.</span></div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="admin-dashboard.html" class="logo" style="display: inline-flex; align-items: center;">
+          <img src="stackly logo03.webp" alt="Stackly Logo" style="display: block; height: 95px;">
+        </a>
+        <button class="sidebar-close-btn" aria-label="Close Sidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#analytics" class="sidebar-link active" data-tab="analytics"><span>Agency Analytics</span></a>
+        <a href="#pipeline" class="sidebar-link" data-tab="pipeline"><span>Project Pipeline</span></a>
+        <a href="#team" class="sidebar-link" data-tab="team"><span>Team Allocation</span></a>
+        <a href="#financials" class="sidebar-link" data-tab="financials"><span>Financial Reports</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="sidebar-link logout-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      
+      <!-- Top Header -->
+      <header class="dashboard-header">
+        <div style="display: flex; align-items: center; gap: 0.85rem;">
+          <button class="dashboard-sidebar-toggle" aria-label="Toggle Navigation Sidebar"><i class="fa-solid fa-bars"></i></button>
+          <h2 id="adminPageTitle" style="font-size: 1.35rem; font-weight: 800;">Analytics</h2>
+        </div>
+
+        <!-- Profile Avatar & Dropdown -->
+        <div class="profile-dropdown-wrapper">
+          <div class="user-profile-header-trigger" id="userProfileTrigger" title="Click to view profile menu">
+            <div class="avatar" id="userAvatar" style="background: var(--primary); color: white;">AM</div>
+            <div class="user-profile-info">
+              <span class="user-profile-name" id="headerUserName">Alex Mercer</span>
+              <span class="user-profile-email" id="headerUserEmail">admin@stackly.com</span>
+            </div>
+          </div>
+          
+          <div class="profile-dropdown" id="profileDropdown">
+            <div class="profile-dropdown-header">
+              <div class="profile-dropdown-avatar" id="dropdownAvatar">AM</div>
+              <div class="profile-dropdown-info">
+                <div class="profile-dropdown-name" id="dropdownUserName">Alex Mercer</div>
+                <div class="profile-dropdown-email" id="dropdownUserEmail">admin@stackly.com</div>
+                <span class="profile-dropdown-role-badge" id="dropdownUserRole">★ Agency Admin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        
+        <!-- ================= TAB 1: ANALYTICS ================= -->
+        <div id="admin-tab-analytics" class="admin-tab-section">
+          <!-- KPI Cards Row -->
+          <div class="grid grid-4" style="margin-bottom: 2rem;">
+            <div class="metric-card">
+              <div class="metric-title">Monthly Revenue</div>
+              <div class="metric-value">$184,500</div>
+              <div class="metric-trend">↑ +18.4% vs last month</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">Active Projects</div>
+              <div class="metric-value">14</div>
+              <div class="metric-trend">● 4 Sprints Delivering Today</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">Lead Conversion Rate</div>
+              <div class="metric-value">34.2%</div>
+              <div class="metric-trend">↑ +4.1% YoY</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">Team Capacity</div>
+              <div class="metric-value">88%</div>
+              <div class="metric-trend" style="color: var(--primary);">Optimal Workload</div>
+            </div>
+          </div>
+
+          <!-- Project Pipeline & Recent Leads Row -->
+          <div class="grid grid-2" style="gap: 2rem; margin-bottom: 2rem;">
+            
+            <!-- Performance Bar Chart Widget (Pure SVG / CSS) -->
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.2rem; font-weight: 800;">2026 Monthly Revenue Growth</h3>
+                <span style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">USD ($K)</span>
+              </div>
+
+              <!-- Bar Chart Display -->
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; height: 180px; padding-top: 1rem; border-bottom: 2px solid var(--border-color);">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex: 1;">
+                  <div style="width: 32px; height: 100px; background: var(--primary-light); border-radius: 4px 4px 0 0;"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">Jan</span>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex: 1;">
+                  <div style="width: 32px; height: 120px; background: var(--primary-light); border-radius: 4px 4px 0 0;"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">Feb</span>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex: 1;">
+                  <div style="width: 32px; height: 140px; background: var(--primary-light); border-radius: 4px 4px 0 0;"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">Mar</span>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex: 1;">
+                  <div style="width: 32px; height: 130px; background: var(--primary-light); border-radius: 4px 4px 0 0;"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">Apr</span>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex: 1;">
+                  <div style="width: 32px; height: 160px; background: var(--primary-light); border-radius: 4px 4px 0 0;"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">May</span>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex: 1;">
+                  <div style="width: 32px; height: 175px; background: var(--primary-gradient); border-radius: 4px 4px 0 0; box-shadow: 0 4px 12px var(--primary-glow);"></div>
+                  <span style="font-size: 0.75rem; font-weight: 800; color: var(--primary);">Jun</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Lead Inquiries Inbox -->
+            <div style="background: #FFFFFF; padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.2rem; font-weight: 800;">Recent Website Inquiries</h3>
+                <span class="badge" style="margin-bottom: 0;">5 New</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color);">
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.95rem;">Vortex Capital Group</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Rebranding & Web Application Portal</div>
+                  </div>
+                  <button class="btn btn-outline" onclick="alert('Inquiry Details:\nClient: Vortex Capital\nBudget: $45,000\nStatus: Initial Discovery Requested')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color);">
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.95rem;">Sphere Health Inc</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Patient Mobile App UI/UX Audit</div>
+                  </div>
+                  <button class="btn btn-outline" onclick="alert('Inquiry Details:\nClient: Sphere Health\nBudget: $28,000\nStatus: Proposal Sent')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.95rem;">Luxe Global Fashion</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Custom E-Commerce Platform Build</div>
+                  </div>
+                  <button class="btn btn-outline" onclick="alert('Inquiry Details:\nClient: Luxe Global\nBudget: $62,000\nStatus: Discovery Call Scheduled')" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">View Inquiry</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Master Project Pipeline Table -->
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); padding: 2rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 1.5rem;">Agency Master Project Pipeline</h3>
+
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Client Brand</th>
+                    <th>Service Scope</th>
+                    <th>Lead Architect</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Apex Global Logistics</td>
+                    <td>Portal Redesign & Web Dev</td>
+                    <td>Alex Mercer</td>
+                    <td>85%</td>
+                    <td><span style="background: #DEF7EC; color: #03543F; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">In Progress</span></td>
+                    <td><a href="#" onclick="alert('Managing Apex Global Logistics project specs...')" style="color: var(--primary); font-weight: 700;">Manage Project</a></td>
+                  </tr>
+                  <tr>
+                    <td>FinVibe Global</td>
+                    <td>Fintech Mobile App UI/UX</td>
+                    <td>Elena Rostova</td>
+                    <td>100%</td>
+                    <td><span style="background: #E0E7FF; color: #3730A3; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Completed</span></td>
+                    <td><a href="#" onclick="alert('Opening FinVibe Global Case Study...')" style="color: var(--primary); font-weight: 700;">View Case Study</a></td>
+                  </tr>
+                  <tr>
+                    <td>CloudSync Analytics</td>
+                    <td>SaaS Platform Architecture</td>
+                    <td>Marcus Vance</td>
+                    <td>40%</td>
+                    <td><span style="background: #FEF3C7; color: #92400E; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Sprint 2</span></td>
+                    <td><a href="#" onclick="alert('Managing CloudSync Analytics project specs...')" style="color: var(--primary); font-weight: 700;">Manage Project</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 2: PIPELINE ================= -->
+        <div id="admin-tab-pipeline" class="admin-tab-section" style="display: none;">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <h3 class="dashboard-card-title">Master Active Project Pipeline</h3>
+              <div class="card-action-btns">
+                <button class="btn btn-primary" onclick="window.location.href='404.html'">+ Create New Project</button>
+              </div>
+            </div>
+            
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Client</th>
+                    <th>Scope</th>
+                    <th>Lead Architect</th>
+                    <th>Timeline</th>
+                    <th>Budget</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Apex Global Logistics</strong></td>
+                    <td>Web Platform & Portal</td>
+                    <td>Alex Mercer</td>
+                    <td>Aug 15, 2026</td>
+                    <td>$42,500</td>
+                    <td>85%</td>
+                    <td><span style="background: #DEF7EC; color: #03543F; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Sprint 4 Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sphere Health Inc</strong></td>
+                    <td>Patient Mobile App</td>
+                    <td>Elena Rostova</td>
+                    <td>Sept 30, 2026</td>
+                    <td>$58,000</td>
+                    <td>60%</td>
+                    <td><span style="background: #DEF7EC; color: #03543F; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Sprint 2 Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>CloudSync Analytics</strong></td>
+                    <td>SaaS Architecture</td>
+                    <td>Marcus Vance</td>
+                    <td>Nov 10, 2026</td>
+                    <td>$75,000</td>
+                    <td>40%</td>
+                    <td><span style="background: #FEF3C7; color: #92400E; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Sprint 1 Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Vortex Capital</strong></td>
+                    <td>Rebranding & Portal</td>
+                    <td>Alex Mercer</td>
+                    <td>Dec 01, 2026</td>
+                    <td>$45,000</td>
+                    <td>15%</td>
+                    <td><span style="background: #E0E7FF; color: #3730A3; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.8rem;">Kickoff Phase</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 3: LEADS ================= -->
+        <div id="admin-tab-leads" class="admin-tab-section" style="display: none;">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <h3 class="dashboard-card-title">Inbound Website Leads & Inquiries</h3>
+              <span class="milestone-status-pill primary">5 Unprocessed</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-alt);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <h4 style="font-size: 1.1rem; font-weight: 800;">Vortex Capital Group</h4>
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Submitted Today at 08:30 AM</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">"We need a complete digital rebranding and custom client portal build for our venture firm."</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                  <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">Est. Budget: $45,000 - $60,000</span>
+                  <button class="btn btn-primary" onclick="window.location.href='404.html'" style="padding: 0.45rem 1rem; font-size: 0.8rem;">Send Proposal</button>
+                </div>
+              </div>
+
+              <div style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-alt);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <h4 style="font-size: 1.1rem; font-weight: 800;">Luxe Global Fashion</h4>
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Submitted Yesterday at 04:15 PM</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">"Looking to scale our luxury fashion e-commerce experience with custom Next.js storefront."</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                  <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">Est. Budget: $60,000 - $80,000</span>
+                  <button class="btn btn-primary" onclick="window.location.href='404.html'" style="padding: 0.45rem 1rem; font-size: 0.8rem;">Send Proposal</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= TAB 4: TEAM ================= -->
+        <div id="admin-tab-team" class="admin-tab-section" style="display: none;">
+          <div class="dashboard-content" style="padding: 0;">
+
+            <!-- Team Stats Bar -->
+            <div class="grid grid-3" style="gap: 1.25rem; margin-bottom: 2rem;">
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;"><i class="fa-solid fa-users"></i></div>
+                <div><div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Total Team</div><div style="font-size: 1.75rem; font-weight: 800;">8 Members</div></div>
+              </div>
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(16,185,129,0.12); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;"><i class="fa-solid fa-circle-check"></i></div>
+                <div><div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Active Sprints</div><div style="font-size: 1.75rem; font-weight: 800;">6 Running</div></div>
+              </div>
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(59,130,246,0.12); color: #3B82F6; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;"><i class="fa-solid fa-gauge-high"></i></div>
+                <div><div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Avg. Capacity</div><div style="font-size: 1.75rem; font-weight: 800;">83% Used</div></div>
+              </div>
+            </div>
+
+            <!-- Team Members Cards -->
+            <div class="dashboard-card" style="margin-bottom: 2rem;">
+              <div class="dashboard-card-header">
+                <h3 class="dashboard-card-title">Team Member Capacity</h3>
+                <span class="milestone-status-pill success"><i class="fa-solid fa-circle" style="font-size: 0.45rem; vertical-align: middle; margin-right: 0.35rem;"></i>Sprint Week 3 of 4</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+
+                <!-- Member 1 -->
+                <div class="team-member-row">
+                  <div class="team-member-info">
+                    <div style="width: 46px; height: 46px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0;">AM</div>
+                    <div>
+                      <div style="font-weight: 800; font-size: 0.95rem;">Alex Mercer</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">Lead Solutions Architect</div>
+                      <div style="margin-top: 0.35rem;"><span style="background: var(--primary-light); color: var(--primary); font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;">Strategy</span></div>
+                    </div>
+                  </div>
+                  <div class="team-member-progress">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.4rem;"><span style="color: var(--text-muted);">Nexus SaaS Platform, Vortex Rebrand</span><span>85%</span></div>
+                    <div style="height: 8px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 85%; background: var(--primary-gradient); border-radius: 999px;"></div></div>
+                  </div>
+                  <div class="team-member-status"><span class="milestone-status-pill success"><i class="fa-solid fa-circle" style="font-size:0.45rem; vertical-align:middle; margin-right:0.3rem;"></i>Active</span></div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="team-member-row">
+                  <div class="team-member-info">
+                    <div style="width: 46px; height: 46px; border-radius: 50%; background: #3B82F6; color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0;">ER</div>
+                    <div>
+                      <div style="font-weight: 800; font-size: 0.95rem;">Elena Rostova</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">UI/UX Design Director</div>
+                      <div style="margin-top: 0.35rem;"><span style="background: rgba(59,130,246,0.1); color: #3B82F6; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;">Design</span></div>
+                    </div>
+                  </div>
+                  <div class="team-member-progress">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.4rem;"><span style="color: var(--text-muted);">FinVibe Dashboard, EcoPort App</span><span>90%</span></div>
+                    <div style="height: 8px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 90%; background: linear-gradient(135deg, #3B82F6, #6366F1); border-radius: 999px;"></div></div>
+                  </div>
+                  <div class="team-member-status"><span class="milestone-status-pill success"><i class="fa-solid fa-circle" style="font-size:0.45rem; vertical-align:middle; margin-right:0.3rem;"></i>Active</span></div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="team-member-row">
+                  <div class="team-member-info">
+                    <div style="width: 46px; height: 46px; border-radius: 50%; background: #10B981; color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0;">MV</div>
+                    <div>
+                      <div style="font-weight: 800; font-size: 0.95rem;">Marcus Vance</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">Senior Full-Stack Engineer</div>
+                      <div style="margin-top: 0.35rem;"><span style="background: rgba(16,185,129,0.1); color: #10B981; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;">Engineering</span></div>
+                    </div>
+                  </div>
+                  <div class="team-member-progress">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.4rem;"><span style="color: var(--text-muted);">Nexus SaaS Platform</span><span>75%</span></div>
+                    <div style="height: 8px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 75%; background: linear-gradient(135deg, #10B981, #059669); border-radius: 999px;"></div></div>
+                  </div>
+                  <div class="team-member-status"><span class="milestone-status-pill success"><i class="fa-solid fa-circle" style="font-size:0.45rem; vertical-align:middle; margin-right:0.3rem;"></i>Active</span></div>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="team-member-row">
+                  <div class="team-member-info">
+                    <div style="width: 46px; height: 46px; border-radius: 50%; background: #8B5CF6; color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0;">SL</div>
+                    <div>
+                      <div style="font-weight: 800; font-size: 0.95rem;">Sofia Lin</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">Brand Strategist</div>
+                      <div style="margin-top: 0.35rem;"><span style="background: rgba(139,92,246,0.1); color: #8B5CF6; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;">Branding</span></div>
+                    </div>
+                  </div>
+                  <div class="team-member-progress">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.4rem;"><span style="color: var(--text-muted);">Vortex Rebrand, EcoPort Identity</span><span>65%</span></div>
+                    <div style="height: 8px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 65%; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: 999px;"></div></div>
+                  </div>
+                  <div class="team-member-status"><span class="milestone-status-pill primary"><i class="fa-solid fa-circle" style="font-size:0.45rem; vertical-align:middle; margin-right:0.3rem;"></i>On Review</span></div>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="team-member-row">
+                  <div class="team-member-info">
+                    <div style="width: 46px; height: 46px; border-radius: 50%; background: #F59E0B; color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0;">JK</div>
+                    <div>
+                      <div style="font-weight: 800; font-size: 0.95rem;">James Kim</div>
+                      <div style="font-size: 0.78rem; color: var(--text-muted);">SEO & Growth Analyst</div>
+                      <div style="margin-top: 0.35rem;"><span style="background: rgba(245,158,11,0.1); color: #D97706; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;">Analytics</span></div>
+                    </div>
+                  </div>
+                  <div class="team-member-progress">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.4rem;"><span style="color: var(--text-muted);">Available — On Bench</span><span>20%</span></div>
+                    <div style="height: 8px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 20%; background: linear-gradient(135deg, #F59E0B, #D97706); border-radius: 999px;"></div></div>
+                  </div>
+                  <div class="team-member-status"><span class="milestone-status-pill neutral"><i class="fa-solid fa-circle" style="font-size:0.45rem; vertical-align:middle; margin-right:0.3rem;"></i>Available</span></div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Skills & Sprint Summary -->
+            <div class="grid grid-2" style="gap: 1.5rem;">
+              <div class="dashboard-card">
+                <h4 style="font-weight: 800; font-size: 1.05rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-chart-pie" style="color: var(--primary); margin-right: 0.5rem;"></i>Skill Distribution</h4>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                  <div><div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>Engineering</span><span style="white-space: nowrap;">3 members</span></div><div style="height: 8px; background: var(--bg-alt); border-radius: 999px;"><div style="height: 100%; width: 38%; background: #10B981; border-radius: 999px;"></div></div></div>
+                  <div><div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>Design</span><span style="white-space: nowrap;">2 members</span></div><div style="height: 8px; background: var(--bg-alt); border-radius: 999px;"><div style="height: 100%; width: 25%; background: #3B82F6; border-radius: 999px;"></div></div></div>
+                  <div><div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>Strategy & Brand</span><span style="white-space: nowrap;">2 members</span></div><div style="height: 8px; background: var(--bg-alt); border-radius: 999px;"><div style="height: 100%; width: 25%; background: #8B5CF6; border-radius: 999px;"></div></div></div>
+                  <div><div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>Analytics / SEO</span><span style="white-space: nowrap;">1 member</span></div><div style="height: 8px; background: var(--bg-alt); border-radius: 999px;"><div style="height: 100%; width: 12%; background: #F59E0B; border-radius: 999px;"></div></div></div>
+                </div>
+              </div>
+              <div class="dashboard-card">
+                <h4 style="font-weight: 800; font-size: 1.05rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-bolt" style="color: var(--primary); margin-right: 0.5rem;"></i>Sprint Summary — July 2026</h4>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1rem; background: var(--bg-alt); border-radius: var(--radius-sm);"><span style="font-size: 0.88rem; font-weight: 700;">Tasks Completed</span><span style="font-size: 1.1rem; font-weight: 800; color: #10B981; white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">47 / 58</span></div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1rem; background: var(--bg-alt); border-radius: var(--radius-sm);"><span style="font-size: 0.88rem; font-weight: 700;">Milestones Delivered</span><span style="font-size: 1.1rem; font-weight: 800; color: #3B82F6; white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">12 / 15</span></div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1rem; background: var(--bg-alt); border-radius: var(--radius-sm);"><span style="font-size: 0.88rem; font-weight: 700;">Client Approvals</span><span style="font-size: 1.1rem; font-weight: 800; color: #8B5CF6; white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">9 / 10</span></div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1rem; background: var(--bg-alt); border-radius: var(--radius-sm);"><span style="font-size: 0.88rem; font-weight: 700;">Hours Logged This Week</span><span style="font-size: 1.1rem; font-weight: 800; color: var(--primary); white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">284 hrs</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= TAB 5: FINANCIALS ================= -->
+        <div id="admin-tab-financials" class="admin-tab-section" style="display: none;">
+          <div class="dashboard-content" style="padding: 0;">
+
+            <!-- Revenue KPI Cards -->
+            <div class="grid grid-3" style="gap: 1.25rem; margin-bottom: 2rem;">
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                  <div style="width: 42px; height: 42px; border-radius: var(--radius-sm); background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1rem;"><i class="fa-solid fa-dollar-sign"></i></div>
+                  <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Q2 2026 Revenue</span>
+                </div>
+                <div style="font-size: 2rem; font-weight: 800; color: var(--text-main);">$542,000</div>
+                <div style="font-size: 0.82rem; color: #10B981; font-weight: 700; margin-top: 0.35rem;"><i class="fa-solid fa-arrow-trend-up"></i> +22% vs Q1 2026</div>
+              </div>
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                  <div style="width: 42px; height: 42px; border-radius: var(--radius-sm); background: rgba(16,185,129,0.12); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1rem;"><i class="fa-solid fa-file-contract"></i></div>
+                  <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Avg. Retainer</span>
+                </div>
+                <div style="font-size: 2rem; font-weight: 800; color: var(--text-main);">$48,500</div>
+                <div style="font-size: 0.82rem; color: #10B981; font-weight: 700; margin-top: 0.35rem;"><i class="fa-solid fa-arrow-trend-up"></i> +14% Year-on-Year</div>
+              </div>
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                  <div style="width: 42px; height: 42px; border-radius: var(--radius-sm); background: rgba(239,68,68,0.1); color: #EF4444; display: flex; align-items: center; justify-content: center; font-size: 1rem;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                  <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Receivables</span>
+                </div>
+                <div style="font-size: 2rem; font-weight: 800; color: var(--text-main);">$24,000</div>
+                <div style="font-size: 0.82rem; color: #EF4444; font-weight: 700; margin-top: 0.35rem;"><i class="fa-solid fa-triangle-exclamation"></i> Due within 15 days</div>
+              </div>
+            </div>
+
+            <!-- Additional KPI Row -->
+            <div class="grid grid-3" style="gap: 1.25rem; margin-bottom: 2rem;">
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+                <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem;">Net Profit Margin</div>
+                <div style="font-size: 1.85rem; font-weight: 800;">38.4%</div>
+                <div style="height: 6px; background: var(--bg-alt); border-radius: 999px; margin-top: 0.75rem;"><div style="height: 100%; width: 38%; background: var(--primary-gradient); border-radius: 999px;"></div></div>
+              </div>
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+                <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem;">YTD Revenue</div>
+                <div style="font-size: 1.85rem; font-weight: 800;">$986,500</div>
+                <div style="font-size: 0.82rem; color: #10B981; font-weight: 700; margin-top: 0.5rem;"><i class="fa-solid fa-arrow-trend-up"></i> On track for $1.9M annual</div>
+              </div>
+              <div style="background: #FFFFFF; padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
+                <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem;">Active Contracts</div>
+                <div style="font-size: 1.85rem; font-weight: 800;">11 Active</div>
+                <div style="font-size: 0.82rem; color: #3B82F6; font-weight: 700; margin-top: 0.5rem;"><i class="fa-solid fa-file-signature"></i> 3 renewals pending</div>
+              </div>
+            </div>
+
+            <!-- Monthly Revenue Table + Service Breakdown -->
+            <div class="grid grid-2" style="gap: 1.5rem; margin-bottom: 2rem;">
+              <!-- Monthly Revenue Trend -->
+              <div class="dashboard-card">
+                <h4 style="font-weight: 800; font-size: 1.05rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-chart-line" style="color: var(--primary); margin-right: 0.5rem;"></i>Monthly Revenue — 2026</h4>
+                <div class="data-table-container" style="border: none; box-shadow: none;">
+                  <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                    <thead>
+                      <tr style="border-bottom: 2px solid var(--border-color);">
+                        <th style="text-align: left; padding: 0.6rem 0.5rem; font-weight: 700; color: var(--text-muted);">Month</th>
+                        <th style="text-align: right; padding: 0.6rem 0.5rem; font-weight: 700; color: var(--text-muted); white-space: nowrap;">Revenue</th>
+                        <th style="text-align: right; padding: 0.6rem 0.5rem; font-weight: 700; color: var(--text-muted); white-space: nowrap;">Growth</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0.5rem; font-weight: 600;">January</td><td style="text-align: right; padding: 0.75rem 0.5rem; font-weight: 700; white-space: nowrap;">$198,000</td><td style="text-align: right; padding: 0.75rem 0.5rem; color: #10B981; font-weight: 700; white-space: nowrap;">Baseline</td></tr>
+                      <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0.5rem; font-weight: 600;">February</td><td style="text-align: right; padding: 0.75rem 0.5rem; font-weight: 700; white-space: nowrap;">$214,000</td><td style="text-align: right; padding: 0.75rem 0.5rem; color: #10B981; font-weight: 700; white-space: nowrap;"><i class="fa-solid fa-arrow-up" style="font-size:0.7rem; margin-right: 0.15rem;"></i>+8.1%</td></tr>
+                      <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0.5rem; font-weight: 600;">March</td><td style="text-align: right; padding: 0.75rem 0.5rem; font-weight: 700; white-space: nowrap;">$232,000</td><td style="text-align: right; padding: 0.75rem 0.5rem; color: #10B981; font-weight: 700; white-space: nowrap;"><i class="fa-solid fa-arrow-up" style="font-size:0.7rem; margin-right: 0.15rem;"></i>+8.4%</td></tr>
+                      <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0.5rem; font-weight: 600;">April</td><td style="text-align: right; padding: 0.75rem 0.5rem; font-weight: 700; white-space: nowrap;">$168,000</td><td style="text-align: right; padding: 0.75rem 0.5rem; color: #EF4444; font-weight: 700; white-space: nowrap;"><i class="fa-solid fa-arrow-down" style="font-size:0.7rem; margin-right: 0.15rem;"></i>-27.6%</td></tr>
+                      <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 0.75rem 0.5rem; font-weight: 600;">May</td><td style="text-align: right; padding: 0.75rem 0.5rem; font-weight: 700; white-space: nowrap;">$186,000</td><td style="text-align: right; padding: 0.75rem 0.5rem; color: #10B981; font-weight: 700; white-space: nowrap;"><i class="fa-solid fa-arrow-up" style="font-size:0.7rem; margin-right: 0.15rem;"></i>+10.7%</td></tr>
+                      <tr><td style="padding: 0.75rem 0.5rem; font-weight: 700; color: var(--primary);">June</td><td style="text-align: right; padding: 0.75rem 0.5rem; font-weight: 800; color: var(--primary); white-space: nowrap;">$188,500</td><td style="text-align: right; padding: 0.75rem 0.5rem; color: #10B981; font-weight: 700; white-space: nowrap;"><i class="fa-solid fa-arrow-up" style="font-size:0.7rem; margin-right: 0.15rem;"></i>+1.3%</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Service Revenue Breakdown -->
+              <div class="dashboard-card">
+                <h4 style="font-weight: 800; font-size: 1.05rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-layer-group" style="color: var(--primary); margin-right: 0.5rem;"></i>Revenue by Service Line</h4>
+                <div style="display: flex; flex-direction: column; gap: 1.1rem;">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.25rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>Web Development</span><span style="white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">$218,000 — 40%</span></div>
+                    <div style="height: 10px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 40%; background: var(--primary-gradient); border-radius: 999px;"></div></div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.25rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>UI/UX Design</span><span style="white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">$130,000 — 24%</span></div>
+                    <div style="height: 10px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 24%; background: linear-gradient(135deg, #3B82F6, #6366F1); border-radius: 999px;"></div></div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.25rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>Brand Strategy</span><span style="white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">$108,000 — 20%</span></div>
+                    <div style="height: 10px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 20%; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: 999px;"></div></div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.25rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>Digital Marketing</span><span style="white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">$54,000 — 10%</span></div>
+                    <div style="height: 10px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 10%; background: linear-gradient(135deg, #F59E0B, #D97706); border-radius: 999px;"></div></div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.25rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;"><span>SEO Analytics</span><span style="white-space: nowrap; flex-shrink: 0; margin-left: 0.5rem;">$32,000 — 6%</span></div>
+                    <div style="height: 10px; background: var(--bg-alt); border-radius: 999px; overflow: hidden;"><div style="height: 100%; width: 6%; background: linear-gradient(135deg, #10B981, #059669); border-radius: 999px;"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Invoice Status Table -->
+            <div class="dashboard-card">
+              <div class="dashboard-card-header">
+                <h4 class="dashboard-card-title"><i class="fa-solid fa-receipt" style="color: var(--primary); margin-right: 0.5rem;"></i>Invoice Status Tracker</h4>
+                <span class="milestone-status-pill primary">July 2026</span>
+              </div>
+              <div class="data-table-container">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 600px;">
+                  <thead>
+                    <tr style="border-bottom: 2px solid var(--border-color); background: var(--bg-alt);">
+                      <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700; color: var(--text-muted);">Client</th>
+                      <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700; color: var(--text-muted);">Invoice</th>
+                      <th style="text-align: right; padding: 0.75rem 1rem; font-weight: 700; color: var(--text-muted);">Amount</th>
+                      <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700; color: var(--text-muted);">Due Date</th>
+                      <th style="text-align: center; padding: 0.75rem 1rem; font-weight: 700; color: var(--text-muted);">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                      <td style="padding: 0.85rem 1rem; font-weight: 700;">Nexus SaaS Co.</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">#INV-2026-041</td>
+                      <td style="padding: 0.85rem 1rem; text-align: right; font-weight: 800;">$38,500</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">Jul 28, 2026</td>
+                      <td style="padding: 0.85rem 1rem; text-align: center;"><span style="background: rgba(16,185,129,0.12); color: #10B981; font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">Paid</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                      <td style="padding: 0.85rem 1rem; font-weight: 700;">Vortex Media</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">#INV-2026-042</td>
+                      <td style="padding: 0.85rem 1rem; text-align: right; font-weight: 800;">$24,000</td>
+                      <td style="padding: 0.85rem 1rem; color: #EF4444; font-weight: 700;">Aug 04, 2026</td>
+                      <td style="padding: 0.85rem 1rem; text-align: center;"><span style="background: rgba(239,68,68,0.1); color: #EF4444; font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">Overdue</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                      <td style="padding: 0.85rem 1rem; font-weight: 700;">FinVibe Ltd.</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">#INV-2026-043</td>
+                      <td style="padding: 0.85rem 1rem; text-align: right; font-weight: 800;">$52,000</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">Aug 15, 2026</td>
+                      <td style="padding: 0.85rem 1rem; text-align: center;"><span style="background: rgba(251,191,36,0.12); color: #D97706; font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">Pending</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                      <td style="padding: 0.85rem 1rem; font-weight: 700;">EcoPort Systems</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">#INV-2026-044</td>
+                      <td style="padding: 0.85rem 1rem; text-align: right; font-weight: 800;">$19,500</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">Aug 20, 2026</td>
+                      <td style="padding: 0.85rem 1rem; text-align: center;"><span style="background: rgba(16,185,129,0.12); color: #10B981; font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">Paid</span></td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 0.85rem 1rem; font-weight: 700;">SaaSify Suite</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">#INV-2026-045</td>
+                      <td style="padding: 0.85rem 1rem; text-align: right; font-weight: 800;">$44,000</td>
+                      <td style="padding: 0.85rem 1rem; color: var(--text-muted);">Sep 01, 2026</td>
+                      <td style="padding: 0.85rem 1rem; text-align: center;"><span style="background: rgba(59,130,246,0.12); color: #3B82F6; font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">Drafted</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ================= TAB 6: SETTINGS ================= -->
+        <div id="admin-tab-settings" class="admin-tab-section" style="display: none;">
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); padding: 2rem;">
+            <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 1.5rem;">Agency Global Settings</h3>
+            <form id="adminSettingsForm" onsubmit="event.preventDefault(); alert('Agency settings saved successfully!');">
+              <div class="form-group" style="max-width: 500px;">
+                <label class="form-label">Agency Name</label>
+                <input type="text" class="form-control" value="Stackly Creative Agency">
+              </div>
+              <div class="form-group" style="max-width: 500px;">
+                <label class="form-label">Support Contact Email</label>
+                <input type="email" class="form-control" value="alex.mercer@stacklyagency.com">
+              </div>
+              <div class="form-group" style="max-width: 500px;">
+                <label class="form-label">Client Portal Access Mode</label>
+                <select class="form-control">
+                  <option selected>Invite-Only & Managed Access</option>
+                  <option>Public Self-Registration</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="padding: 0.65rem 1.5rem;">Save Settings</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Admin Tab Switching & User Session Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      'use strict';
+
+      // 1. Verify User Session
+      const sessionRaw = localStorage.getItem('stackly_user');
+      if (!sessionRaw) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      let currentUser = {};
+      try {
+        currentUser = JSON.parse(sessionRaw);
+      } catch(e) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      if (!currentUser.loggedIn) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // 2. Populate Top-Right User Profile Avatar & Floating Dropdown
+      const userAvatar = document.getElementById('userAvatar');
+      const userProfileTrigger = document.getElementById('userProfileTrigger');
+      const headerUserName = document.getElementById('headerUserName');
+      const headerUserEmail = document.getElementById('headerUserEmail');
+      const profileDropdown = document.getElementById('profileDropdown');
+      const dropdownAvatar = document.getElementById('dropdownAvatar');
+      const dropdownUserName = document.getElementById('dropdownUserName');
+      const dropdownUserEmail = document.getElementById('dropdownUserEmail');
+      const dropdownUserRole = document.getElementById('dropdownUserRole');
+
+      if (userAvatar) userAvatar.textContent = currentUser.initials || 'AM';
+      if (headerUserName) headerUserName.textContent = currentUser.name || 'Alex Mercer';
+      if (headerUserEmail) headerUserEmail.textContent = currentUser.email || 'admin@stackly.com';
+      if (dropdownAvatar) dropdownAvatar.textContent = currentUser.initials || 'AM';
+      if (dropdownUserName) dropdownUserName.textContent = currentUser.name || 'Alex Mercer';
+      if (dropdownUserEmail) dropdownUserEmail.textContent = currentUser.email || 'admin@stackly.com';
+      if (dropdownUserRole) dropdownUserRole.textContent = currentUser.role === 'admin' ? '★ Agency Admin' : '● Client Account';
+
+      // Dropdown toggle & outside click close
+      const profileBtn = userProfileTrigger || userAvatar;
+      if (profileBtn && profileDropdown) {
+        profileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          profileDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!profileDropdown.contains(e.target) && !profileBtn.contains(e.target)) {
+            profileDropdown.classList.remove('open');
+          }
+        });
+      }
+
+      // 3. Handle Sign Out (Clear session and redirect)
+      const logoutLinks = document.querySelectorAll('.logout-link, #dropdownLogoutBtn');
+      logoutLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('stackly_user');
+          window.location.href = 'login.html';
+        });
+      });
+
+      // 4. Tab Navigation & Dynamic Page Titles
+      const links = document.querySelectorAll('.sidebar-menu .sidebar-link[data-tab]');
+      const tabSections = document.querySelectorAll('.admin-tab-section');
+      const adminPageTitle = document.getElementById('adminPageTitle');
+      const adminPageSubTitle = document.getElementById('adminPageSubTitle');
+
+      const titles = {
+        'analytics': { title: 'Analytics', sub: 'Real-time agency performance & pipeline metrics' },
+        'pipeline': { title: 'Pipeline', sub: 'Active sprint progress, client deliverables, and timelines' },
+        'leads': { title: 'Leads', sub: 'Inbound prospect requests and proposal workflows' },
+        'team': { title: 'Team', sub: 'Capacity metrics for architects, designers, and engineers' },
+        'financials': { title: 'Financials', sub: 'Revenue benchmarks, invoice status, and projections' },
+        'settings': { title: 'Settings', sub: 'System configurations and access controls' }
+      };
+
+      function switchTab(tabId) {
+        links.forEach(l => l.classList.remove('active'));
+        tabSections.forEach(s => s.style.display = 'none');
+
+        const activeLink = document.querySelector(`.sidebar-link[data-tab="${tabId}"]`);
+        const activeSection = document.getElementById(`admin-tab-${tabId}`);
+
+        if (activeLink) activeLink.classList.add('active');
+        if (activeSection) activeSection.style.display = 'block';
+
+        if (titles[tabId] && adminPageTitle) {
+          adminPageTitle.textContent = titles[tabId].title;
+          if (adminPageSubTitle) adminPageSubTitle.textContent = titles[tabId].sub;
+        }
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const tabId = link.getAttribute('data-tab');
+          switchTab(tabId);
+          window.location.hash = tabId;
+          if (window.innerWidth <= 992) {
+            document.querySelector('.sidebar')?.classList.remove('active');
+          }
+        });
+      });
+
+      // Mobile Sidebar Toggle
+      const dashSidebarToggle = document.querySelector('.dashboard-sidebar-toggle');
+      const dashSidebarClose = document.querySelector('.sidebar-close-btn');
+      const dashSidebar = document.querySelector('.sidebar');
+
+      if (dashSidebarToggle && dashSidebar) {
+        dashSidebarToggle.addEventListener('click', () => {
+          dashSidebar.classList.add('active');
+        });
+      }
+      if (dashSidebarClose && dashSidebar) {
+        dashSidebarClose.addEventListener('click', () => {
+          dashSidebar.classList.remove('active');
+        });
+      }
+
+      const initialHash = window.location.hash.replace('#', '');
+      if (initialHash && titles[initialHash]) {
+        switchTab(initialHash);
+      } else {
+        switchTab('analytics');
+      }
+    });
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

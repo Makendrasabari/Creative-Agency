@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | Stackly Creative Agency Portal</title>
+  <meta name="description" content="Create a new account to access the Stackly Creative Agency Client Portal.">
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Premium Brand Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <div class="preloader-glow-ring"></div>
+        <div class="preloader-spinner-ring"></div>
+        <img src="stackly logo03.webp" alt="Stackly Creative Agency" class="preloader-logo">
+      </div>
+      <div class="preloader-brand-title">STACKLY<span>.</span></div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Wrapper Container -->
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <!-- Back to Home Link (Top) -->
+      <div style="margin-bottom: 1.25rem;">
+        <a href="index.html" style="color: var(--text-muted); font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'">
+          <i class="fa-solid fa-arrow-left" style="font-size: 0.8rem;"></i> Back to Home Page
+        </a>
+      </div>
+
+      <!-- Card Header -->
+      <div class="auth-header">
+        <a href="index.html" class="logo" style="display: inline-flex; justify-content: center; margin: 0 auto;">
+          <img src="stackly logo03.webp" alt="Stackly Logo" style="margin: 0 auto; display: block; height: 85px; max-height: 85px;">
+        </a>
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-top: 1rem; color: var(--text-main);">Create Account</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">Fill in your details to register for the portal.</p>
+      </div>
+
+      <!-- Success Banner -->
+      <div id="signupSuccess" class="form-success">Account created! Redirecting to Sign In...</div>
+
+      <!-- Signup Form -->
+      <form id="signupForm" novalidate>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="signupName" class="form-label">Full Name *</label>
+          <input type="text" id="signupName" class="form-control" placeholder="e.g. John Smith">
+          <div id="signupNameError" class="error-message"></div>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="signupEmail" class="form-label">Email Address *</label>
+          <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email address">
+          <div id="signupEmailError" class="error-message"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="signupPassword" class="form-label">Password *</label>
+          <input type="password" id="signupPassword" class="form-control" placeholder="Min. 8 characters">
+          <div id="signupPasswordError" class="error-message"></div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group" style="margin-bottom: 1.75rem;">
+          <label for="signupConfirm" class="form-label">Confirm Password *</label>
+          <input type="password" id="signupConfirm" class="form-control" placeholder="Re-enter your password">
+          <div id="signupConfirmError" class="error-message"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="signupSubmitBtn" class="btn btn-primary" style="width: 100%; font-size: 1rem;">Create Account</button>
+
+        <!-- Already have account -->
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+          Already have an account? <a href="login.html" style="color: var(--primary); font-weight: 700; white-space: nowrap; display: inline-block;">Sign In</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Signup Validation & Redirect Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      'use strict';
+
+      const signupForm     = document.getElementById('signupForm');
+      const signupName     = document.getElementById('signupName');
+      const signupEmail    = document.getElementById('signupEmail');
+      const signupPassword = document.getElementById('signupPassword');
+      const signupConfirm  = document.getElementById('signupConfirm');
+      const signupSuccess  = document.getElementById('signupSuccess');
+
+      const nameError     = document.getElementById('signupNameError');
+      const emailError    = document.getElementById('signupEmailError');
+      const passwordError = document.getElementById('signupPasswordError');
+      const confirmError  = document.getElementById('signupConfirmError');
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      function showError(input, errorEl, msg) {
+        input.classList.add('input-error');
+        errorEl.textContent = msg;
+        errorEl.classList.add('show');
+      }
+
+      function clearError(input, errorEl) {
+        input.classList.remove('input-error');
+        errorEl.classList.remove('show');
+      }
+
+      signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let isValid = true;
+
+        // Name Validation
+        const nameVal = signupName.value.trim();
+        if (!nameVal) {
+          showError(signupName, nameError, 'Full name is required.');
+          isValid = false;
+        } else if (nameVal.length < 2) {
+          showError(signupName, nameError, 'Name must be at least 2 characters.');
+          isValid = false;
+        } else {
+          clearError(signupName, nameError);
+        }
+
+        // Email Validation
+        const emailVal = signupEmail.value.trim();
+        if (!emailVal) {
+          showError(signupEmail, emailError, 'Email address is required.');
+          isValid = false;
+        } else if (!emailRegex.test(emailVal)) {
+          showError(signupEmail, emailError, 'Please enter a valid email format (e.g. user@domain.com).');
+          isValid = false;
+        } else {
+          clearError(signupEmail, emailError);
+        }
+
+        // Password Validation
+        const passVal = signupPassword.value;
+        if (!passVal) {
+          showError(signupPassword, passwordError, 'Password is required.');
+          isValid = false;
+        } else if (passVal.length < 8) {
+          showError(signupPassword, passwordError, 'Password must be at least 8 characters.');
+          isValid = false;
+        } else {
+          clearError(signupPassword, passwordError);
+        }
+
+        // Confirm Password Validation
+        const confirmVal = signupConfirm.value;
+        if (!confirmVal) {
+          showError(signupConfirm, confirmError, 'Please confirm your password.');
+          isValid = false;
+        } else if (confirmVal !== passVal) {
+          showError(signupConfirm, confirmError, 'Passwords do not match.');
+          isValid = false;
+        } else {
+          clearError(signupConfirm, confirmError);
+        }
+
+        // If all valid → show success & redirect to login
+        if (isValid) {
+          const submitBtn = document.getElementById('signupSubmitBtn');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Creating Account...';
+
+          signupSuccess.classList.add('show');
+          signupSuccess.textContent = `Account created for ${nameVal}! Redirecting to Sign In...`;
+
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 1800);
+        }
+      });
+    });
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
