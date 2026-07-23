@@ -437,67 +437,72 @@
 
         <!-- ================= TAB 4: MESSAGES ================= -->
         <div id="tab-messages" class="tab-content-section" style="display: none;">
-          <div style="background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: grid; grid-template-columns: 280px 1fr; min-height: 520px; overflow: hidden;">
+          <div class="chat-container" id="chatContainer">
             
             <!-- Message Contacts List -->
-            <div style="border-right: 1px solid var(--border-color); background: var(--bg-alt); padding: 1.25rem;">
-              <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);">Agency Team Chat</h4>
+            <div class="chat-sidebar" id="chatSidebar">
+              <h4 class="chat-sidebar-title">Agency Team Chat</h4>
               
-              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <div style="background: #FFFFFF; padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--primary); cursor: pointer;">
-                  <div style="font-weight: 700; font-size: 0.9rem; color: var(--primary);">Alex Mercer</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted);">Lead Architect</div>
-                  <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;">● Online</div>
+              <div class="chat-contacts-list">
+                <div class="chat-contact-item active" data-name="Alex Mercer" data-role="Lead Architect" data-project="Apex Portal Redesign &amp; Web Platform Project">
+                  <div class="chat-contact-name">Alex Mercer</div>
+                  <div class="chat-contact-role">Lead Architect</div>
+                  <div class="chat-contact-status status-online">● Online</div>
                 </div>
 
-                <div style="background: transparent; padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid transparent; cursor: pointer;">
-                  <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-main);">Elena Rostova</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted);">UI/UX Director</div>
-                  <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.25rem;">Away (Last active 2h ago)</div>
+                <div class="chat-contact-item" data-name="Elena Rostova" data-role="UI/UX Director" data-project="SaaSify Suite Design System &amp; UX Audit">
+                  <div class="chat-contact-name">Elena Rostova</div>
+                  <div class="chat-contact-role">UI/UX Director</div>
+                  <div class="chat-contact-status status-away">Away (Last active 2h ago)</div>
                 </div>
 
-                <div style="background: transparent; padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid transparent; cursor: pointer;">
-                  <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-main);">Billing & Support</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted);">Financial Helpdesk</div>
-                  <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;">● Online</div>
+                <div class="chat-contact-item" data-name="Billing &amp; Support" data-role="Financial Helpdesk" data-project="Enterprise Account, Retainer &amp; Invoicing Support">
+                  <div class="chat-contact-name">Billing &amp; Support</div>
+                  <div class="chat-contact-role">Financial Helpdesk</div>
+                  <div class="chat-contact-status status-online">● Online</div>
                 </div>
               </div>
             </div>
 
             <!-- Chat Window -->
-            <div style="display: flex; flex-direction: column; height: 100%;">
-              <div style="padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                  <h4 style="font-weight: 800; font-size: 1.05rem;">Alex Mercer — Lead Architect</h4>
-                  <div style="font-size: 0.8rem; color: var(--text-muted);">Apex Portal Redesign & Web Platform Project</div>
+            <div class="chat-main" id="chatMain">
+              <div class="chat-header">
+                <div style="display: flex; align-items: center; gap: 0.65rem; min-width: 0; flex: 1;">
+                  <button type="button" class="chat-back-btn" id="chatBackBtn" aria-label="Back to Contacts list">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <div class="chat-header-info">
+                    <h4 class="chat-header-name" id="chatHeaderName">Alex Mercer — Lead Architect</h4>
+                    <div class="chat-header-project" id="chatHeaderProject">Apex Portal Redesign &amp; Web Platform Project</div>
+                  </div>
                 </div>
-                <span style="background: #DEF7EC; color: #03543F; padding: 0.2rem 0.65rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700;">Direct Channel Active</span>
+                <span class="chat-channel-badge">Direct Channel Active</span>
               </div>
 
               <!-- Message History Container -->
-              <div id="fullChatHistory" style="flex-grow: 1; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; overflow-y: auto; max-height: 340px;">
+              <div id="fullChatHistory" class="chat-history">
                 
-                <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-sm); max-width: 75%; align-self: flex-start;">
-                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem;">Alex Mercer (Lead Architect) • 10:14 AM</div>
-                  <p style="font-size: 0.9rem; line-height: 1.5;">Hi Sarah! We have uploaded the initial analytics integration preview to Sprint 3 for your review. Please test the data table filters when you get a chance!</p>
+                <div class="chat-msg chat-msg-received">
+                  <div class="chat-msg-meta">Alex Mercer (Lead Architect) • 10:14 AM</div>
+                  <p class="chat-msg-text">Hi Sarah! We have uploaded the initial analytics integration preview to Sprint 3 for your review. Please test the data table filters when you get a chance!</p>
                 </div>
 
-                <div style="background: var(--primary-light); color: var(--text-main); padding: 1rem; border-radius: var(--radius-sm); max-width: 75%; align-self: flex-end;">
-                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem;">You (Sarah Jenkins) • 10:28 AM</div>
-                  <p style="font-size: 0.9rem; line-height: 1.5;">Awesome, checking it now! The speed benchmark looks fantastic. The page load transitions are super smooth.</p>
+                <div class="chat-msg chat-msg-sent">
+                  <div class="chat-msg-meta">You (Sarah Jenkins) • 10:28 AM</div>
+                  <p class="chat-msg-text">Awesome, checking it now! The speed benchmark looks fantastic. The page load transitions are super smooth.</p>
                 </div>
 
-                <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-sm); max-width: 75%; align-self: flex-start;">
-                  <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem;">Alex Mercer (Lead Architect) • 10:45 AM</div>
-                  <p style="font-size: 0.9rem; line-height: 1.5;">Great to hear! We are now finalizing the security penetration tests ahead of Milestone 4 cutover. Let us know if you need any adjustments.</p>
+                <div class="chat-msg chat-msg-received">
+                  <div class="chat-msg-meta">Alex Mercer (Lead Architect) • 10:45 AM</div>
+                  <p class="chat-msg-text">Great to hear! We are now finalizing the security penetration tests ahead of Milestone 4 cutover. Let us know if you need any adjustments.</p>
                 </div>
 
               </div>
 
               <!-- Chat Input Form -->
-              <form id="chatForm" style="padding: 1.25rem; border-top: 1px solid var(--border-color); display: flex; gap: 0.75rem;" onsubmit="event.preventDefault(); window.location.href='404.html';">
-                <input type="text" id="chatInput" class="form-control" placeholder="Write your message to Alex Mercer..." required style="font-size: 0.95rem;">
-                <button type="submit" class="btn btn-primary" style="padding: 0.7rem 1.5rem; flex-shrink: 0;">Send Message</button>
+              <form id="chatForm" class="chat-form" novalidate>
+                <input type="text" id="chatInput" class="form-control chat-input" placeholder="Write your message to Alex Mercer..." required>
+                <button type="submit" class="btn btn-primary chat-send-btn">Send Message</button>
               </form>
             </div>
 
@@ -564,9 +569,73 @@
       if (toggleBtn && sidebar) toggleBtn.addEventListener('click', function() { sidebar.classList.add('active'); });
       if (closeBtn  && sidebar) closeBtn.addEventListener('click',  function() { sidebar.classList.remove('active'); });
 
+      /* ── Team Chat Mobile Navigation & Contact Switcher ── */
+      var chatContainer   = document.getElementById('chatContainer');
+      var chatBackBtn     = document.getElementById('chatBackBtn');
+      var contactItems    = document.querySelectorAll('.chat-contact-item');
+      var chatHeaderName  = document.getElementById('chatHeaderName');
+      var chatHeaderProj  = document.getElementById('chatHeaderProject');
+      var chatInput       = document.getElementById('chatInput');
+      var fullChatHistory = document.getElementById('fullChatHistory');
+
+      var contactConversations = {
+        'Alex Mercer': [
+          { sender: 'Alex Mercer (Lead Architect) • 10:14 AM', type: 'received', text: 'Hi Sarah! We have uploaded the initial analytics integration preview to Sprint 3 for your review. Please test the data table filters when you get a chance!' },
+          { sender: 'You (Sarah Jenkins) • 10:28 AM', type: 'sent', text: 'Awesome, checking it now! The speed benchmark looks fantastic. The page load transitions are super smooth.' },
+          { sender: 'Alex Mercer (Lead Architect) • 10:45 AM', type: 'received', text: 'Great to hear! We are now finalizing the security penetration tests ahead of Milestone 4 cutover. Let us know if you need any adjustments.' }
+        ],
+        'Elena Rostova': [
+          { sender: 'Elena Rostova (UI/UX Director) • Yesterday', type: 'received', text: 'Hello Sarah! The design system tokens for the client dashboard dark theme have been finalized in Figma. Let me know if you need high-res exports.' },
+          { sender: 'You (Sarah Jenkins) • Yesterday', type: 'sent', text: 'Thanks Elena! The color palette contrast ratios look great. We appreciate the quick turn-around.' }
+        ],
+        'Billing & Support': [
+          { sender: 'Billing & Support Helpdesk • 2 days ago', type: 'received', text: 'Invoice #INV-2026-104 for Milestone 3 completion has been generated and emailed to your billing contact.' },
+          { sender: 'You (Sarah Jenkins) • 2 days ago', type: 'sent', text: 'Received and forwarded to our finance department for processing. Thank you!' }
+        ]
+      };
+
+      contactItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+          contactItems.forEach(function(ci) { ci.classList.remove('active'); });
+          item.classList.add('active');
+
+          var name    = item.getAttribute('data-name')    || 'Team Member';
+          var role    = item.getAttribute('data-role')    || '';
+          var project = item.getAttribute('data-project') || 'Stackly Project Channel';
+
+          if (chatHeaderName) chatHeaderName.textContent = name + (role ? ' — ' + role : '');
+          if (chatHeaderProj) chatHeaderProj.textContent = project;
+          if (chatInput)      chatInput.placeholder     = 'Write your message to ' + name + '...';
+
+          if (fullChatHistory && contactConversations[name]) {
+            var msgs = contactConversations[name];
+            var html = '';
+            msgs.forEach(function(m) {
+              var cls = m.type === 'sent' ? 'chat-msg chat-msg-sent' : 'chat-msg chat-msg-received';
+              html += '<div class="' + cls + '">' +
+                        '<div class="chat-msg-meta">' + m.sender + '</div>' +
+                        '<p class="chat-msg-text">' + m.text + '</p>' +
+                      '</div>';
+            });
+            fullChatHistory.innerHTML = html;
+            fullChatHistory.scrollTop = fullChatHistory.scrollHeight;
+          }
+
+          if (chatContainer) {
+            chatContainer.classList.add('show-chat');
+          }
+        });
+      });
+
+      if (chatBackBtn && chatContainer) {
+        chatBackBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          chatContainer.classList.remove('show-chat');
+        });
+      }
+
       /* ── Chat Form ── */
       var chatForm  = document.getElementById('chatForm');
-      var chatInput = document.getElementById('chatInput');
       if (chatForm) {
         chatForm.addEventListener('submit', function(e) {
           e.preventDefault();
